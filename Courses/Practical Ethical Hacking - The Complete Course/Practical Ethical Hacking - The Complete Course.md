@@ -4036,5 +4036,189 @@ OWASP Juice Shop: https://github.com/bkimminich/juice-shop
 
 ![[Pasted image 20230402154905.png]]
 
+
 ### SQL Injection Attacks Overview
+
+> [!note] 
+>  Resources for this video:
+OWASP A1-Injection: https://www.owasp.org/index.php/Top_10-2017_A1-Injection
+
+![[Pasted image 20230407105010.png]]
+
+![[Pasted image 20230407105117.png]]
+
+![[Pasted image 20230407105207.png]]
+
+![[Pasted image 20230407105257.png]]
+
+![[Pasted image 20230407105451.png]]
+
+
+### SQL Injection Walkthrough
+
+![[Pasted image 20230407110607.png]]
+
+> [!done] 
+> Create Server Error:
+> `{"email":"f'","password":"sadfasdf"}` 
+
+![[Pasted image 20230407110317.png]]
+
+> [!done] 
+> Login bypass for Admin (Admin ID 1)
+`{"email":"' OR 1=1; --","password":"' OR 1=1 --"}`
+
+> [!tip] 
+> Blind SQL Injection:
+If you put `(sleep 10)` in SQL query and website don't response, you know you have a Blind SQL injection 
+
+
+### SQL Injection Defenses
+
+![[Pasted image 20230407134429.png]]
+
+
+### Broken Authentication Overview and Defenses
+
+> [!note] 
+> Resources for this video:
+OWASP A2-Broken Authentication: https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication
+
+![[Pasted image 20230407134926.png]]
+
+
+### Testing for Broken Authentication
+
+> [!info] 
+> We put right email address and now form below is now active. This is a low level finding. We know this email exists! 
+
+![[Pasted image 20230407135853.png]]
+
+> [!tip] 
+> Look for Token which not change if you log out and log in with other user
+> 
+
+
+### Sensitive Data Exposure Overview and Defenses
+
+> [!note] 
+> Resources for this video:
+OWASP A3-Sensetive Data Exposure: https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+
+![[Pasted image 20230407141506.png]]
+
+
+### Testing for Sensitive Data Exposure
+
+![[Pasted image 20230407141902.png]]
+
+![[Pasted image 20230407142010.png]]
+
+> [!tip] 
+> Headers are interessting to check.  
+> https://securityheaders.com/
+
+![[Pasted image 20230407142616.png]]
+
+> [!todo] 
+> Check how strong website encryption is:
+>  `nmap --script=ssl-enum-ciphers -p 443 tesla.com`
+
+
+### XML External Entities (XXE) Overview
+
+> [!todo] 
+> Resources for this video:
+OWASP A4-XML External Entities: https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE) 
+
+![[Pasted image 20230407143131.png]]
+
+``` 
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE gift [
+	<!ENTITY from "John Doe">
+]>
+
+<gift>
+	<To>Frank</To>
+	<From>&from;</From>
+	<Item>Pokemon Cards</Items>
+</gift>
+```
+
+> [!info] 
+> Google for XXE payloads:
+> https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XXE%20Injection/README.md
+> 
+
+![[Pasted image 20230407144641.png]]
+
+``` 
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <!DOCTYPE foo [  
+  <!ELEMENT foo ANY >
+  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+```
+
+
+### XXE Attack and Defense
+
+![[Pasted image 20230407145527.png]]
+
+> [!note] 
+> As I run this in Docker, we don't see output of `passwd` file.
+> Otherwise it will look like this:
+
+![[Pasted image 20230407145657.png]]
+
+
+### Broken Access Control Overview
+
+> [!note] 
+> Resources for this video:
+OWASP A5-Broken Access Control: https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
+
+![[Pasted image 20230407150534.png]]
+
+
+### Broken Access Control Walkthrough
+
+> [!info] 
+> Remove `hidden` attribute of userid field. This allows us to post feedback with other user id.
+
+![[Pasted image 20230407151255.png]]
+
+
+### Security Misconfiguration Attacks and Defenses
+
+> [!note] 
+> Resources for this video:
+OWASP A6-Security Misconfigurations: https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration
+
+![[Pasted image 20230407151633.png]]
+
+
+### Cross-Site Scripting (XSS) Overview
+
+> [!note] 
+> Resources for this video:
+> - OWASP A7-Cross Site Scripting: https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)
+> - DOM Based XSS: https://www.scip.ch/en/?labs.20171214
+> - XSS Game: https://xss-game.appspot.com/ 
+
+![[Pasted image 20230407154452.png]]
+
+![[Pasted image 20230407160526.png]]
+
+> [!info] 
+> Reflected:
+> 
+![[Pasted image 20230407160753.png]] 
+
+> [!info] 
+>  Stored:
+>  For example in stored comment in blog post.
+
+![[Pasted image 20230407162303.png]]
+
 
