@@ -1,4 +1,9 @@
 
+## Setup HTTPS for Jenkins
+
+https://www.baeldung.com/ops/jenkins-enable-https
+
+
 ## Automating iOS app testing and TestFlight deployment with Jenkins
 
 https://medium.com/swiftblade/automating-ios-app-testflight-deployment-with-jenkins-7122cb741309
