@@ -32,18 +32,6 @@
             }
           },
           {
-            "id": "213761bd2b5ad88e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0ef1be6b4c45c47e",
             "type": "leaf",
             "state": {
@@ -54,9 +42,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3be9bc3120345fe2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "213761bd2b5ad88e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -195,6 +207,13 @@
   },
   "active": "213761bd2b5ad88e",
   "lastOpenFiles": [
+    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
+    "Courses/Web Security Academy Series Course/assets/Pasted image 20230413141501.png",
+    "Courses/Web Security Academy Series Course/assets",
+    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
+    "Courses/Web Security Academy Series Course",
+    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
+    "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409142334.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140801.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140543.png",
@@ -202,20 +221,15 @@
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140356.png",
     "Courses/Windows Privilege Escalation for Beginners/assets",
     "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
-    "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
     "Courses/Windows Privilege Escalation for Beginners",
-    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409131410.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409115604.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409113243.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409103719.png",
-    "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409103355.png",
-    "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409094835.png",
     "Tools/Jenkins/Jenkins.md",
     "Scripts/assets/backup-bitbucket.sh",
     "Scripts/assets",
     "Scripts/Bitbucket Backup Script.md",
-    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
     "Topics/DevOps/assets",
     "Tools/Jenkins/assets/Automating iOS app testing and TestFlight deployment with Jenkin.pdf",
     "Tools/Jenkins/assets",
@@ -224,8 +238,6 @@
     "Topics/DevOps/Security Onion.md",
     "Topics/DevOps/Proxmox.md",
     "Topics/DevOps/Jenkins - Build Server.md",
-    "Topics/DevOps",
-    "Scripts/wifi_dos3.py",
     "Courses/External Pentest Playbook/README.md",
     "Courses/The Definitive GRC Analyst Master Class/README.md"
   ]
