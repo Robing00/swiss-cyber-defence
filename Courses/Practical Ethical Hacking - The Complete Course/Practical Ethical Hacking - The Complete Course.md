@@ -21,7 +21,6 @@ Course exists since 2018. Last update in 2022.
 
 Course Discord - [TCM Security](https://discord.gg/tcm)
 
-## 
 
 ### A Day in the Life of an Ethical Hacker
 
@@ -183,7 +182,7 @@ Course Discord - [TCM Security](https://discord.gg/tcm)
 > https://maclookup.app/ 
 
 
-## TCP, UDP, and the Three-Way Handshake
+### TCP, UDP, and the Three-Way Handshake
 
 > [!abstract] 
 > TCP = Transmission Control Protocol
@@ -200,7 +199,7 @@ Course Discord - [TCM Security](https://discord.gg/tcm)
 > 
 
 
-## Common Ports and Protocols
+### Common Ports and Protocols
 
 > [!abstract] 
 > **TCP:**
@@ -273,7 +272,7 @@ Course Discord - [TCM Security](https://discord.gg/tcm)
 ![[Pasted image 20221211193102.png]]
 
 
-## Subnetting Part 2
+### Subnetting Part 2
 
 ![[Pasted image 20221211195803.png]]
 
@@ -760,7 +759,7 @@ print(alcohol(19, 1))
 ```
 
 
-## Lists
+### Lists
 
 
 ``` 
@@ -809,7 +808,7 @@ grades = ("a", "b", "c", "d", "f")
 print(grades[1])
 ```
 
-## Looping
+### Looping
 
 ``` 
 #!/bin/python3
@@ -1133,7 +1132,7 @@ for shoes in [high, medium, low]:
 ![[Pasted image 20221224141322.png]]
 
 
-## Information Gathering (Reconnaissance)
+### Information Gathering (Reconnaissance)
 
 ### Passive Reconnaissance Overview
 
