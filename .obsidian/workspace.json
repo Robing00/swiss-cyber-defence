@@ -175,7 +175,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -195,6 +195,9 @@
   },
   "active": "213761bd2b5ad88e",
   "lastOpenFiles": [
+    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
+    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
+    "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409142334.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140801.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140543.png",
@@ -202,20 +205,16 @@
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230409140356.png",
     "Courses/Windows Privilege Escalation for Beginners/assets",
     "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
-    "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
     "Courses/Windows Privilege Escalation for Beginners",
-    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409131410.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409115604.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409113243.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409103719.png",
     "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409103355.png",
-    "Courses/Practical Ethical Hacking - The Complete Course/assets/Pasted image 20230409094835.png",
     "Tools/Jenkins/Jenkins.md",
     "Scripts/assets/backup-bitbucket.sh",
     "Scripts/assets",
     "Scripts/Bitbucket Backup Script.md",
-    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
     "Topics/DevOps/assets",
     "Tools/Jenkins/assets/Automating iOS app testing and TestFlight deployment with Jenkin.pdf",
     "Tools/Jenkins/assets",
