@@ -220,3 +220,53 @@ FTP Server allow `anonymous` and as password `*anything*` Login.
 
 ![[Pasted image 20230420172800.png]]
 
+> [!hint] 
+> Nice Hack Tips:
+> https://book.hacktricks.xyz
+
+
+### Exploring Automated Tools
+
+> [!todo] 
+>meterpreter:
+>` cd c:\\Windows\\Temp\\`
+ >`upload /home/kali/Downloads/winPEAS.exe` 
+> `shell`
+> 
+
+Sometimes there will be a issue that shell isn't working well, see example below:
+
+![[Pasted image 20230422151951.png]]
+
+> [!todo] 
+>  we can try with meterpreter:
+>  `load powershell`
+>  But isn't working too on this box
+
+> [!todo] 
+> Use meterpreter to find possible exploits:
+> `run post/multi/recon/local_exploit_suggester ` 
+
+![[Pasted image 20230422152509.png]]
+
+> [!todo] 
+> run  `systeminfo` on Windows Target.
+> Save result to systeminfo.txt
+
+> [!todo] 
+> `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py; python get-pip.py  `
+> `pip install xlrd==1.2.0 --upgrade` or with sudo
+>  `python2 windows-exploit-suggester.py --update`
+>  `python2 windows-exploit-suggester.py --database 2023-04-22-mssb.xls --systeminfo systeminfo.txt`
+
+![[Pasted image 20230422160140.png]]
+
+
+## Escalation Path: Kernel Exploits
+
+### Kernel Exploits Overview
+
+> [!note] 
+> Resources for this video:
+> Windows Kernel Exploits - [https://github.com/SecWiki/windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits) 
+
