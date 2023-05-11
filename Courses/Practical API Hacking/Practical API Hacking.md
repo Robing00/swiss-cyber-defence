@@ -123,6 +123,20 @@
 > `cd ~/labs/crAPI/deploy/docker`
 > `sudo docker-compose up`
 
-
 > [!info] 
->  
+>  Go to WebApp: http://localhost:8888
+>  And MailServer of WebApp: http://localhost:8025/
+
+> [!tip] 
+>  **Cleaning up your old containers**
+
+``` 
+#!/bin/bash  
+sudo docker stop $(sudo docker ps -aq)  
+sudo docker rm $(sudo docker ps -aq)  
+sudo docker rmi $(sudo docker images -q)  
+sudo docker volume rm $(sudo docker volume ls -q)  
+sudo docker network rm $(sudo docker network ls -q)
+```
+
+
