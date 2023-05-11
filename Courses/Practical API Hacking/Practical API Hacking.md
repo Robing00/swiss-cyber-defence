@@ -140,3 +140,15 @@ sudo docker network rm $(sudo docker network ls -q)
 ```
 
 
+## Enumerating APIs
+
+### Introduction to Enumeration
+
+> [!abstract] 
+> This chapter covers the automated enumeration (fuzzing) API and manual discovery.
+> 
+
+
+### Fuzzing APIs
+
+
