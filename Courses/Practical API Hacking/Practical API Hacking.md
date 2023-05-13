@@ -151,4 +151,20 @@ sudo docker network rm $(sudo docker network ls -q)
 
 ### Fuzzing APIs
 
+> [!tip] 
+> If you see v2, you can see if there is a v4, v1, v0, beta, stage, or something similiar
+> ![[Pasted image 20230513094019.png]] 
+
+
+> [!todo] 
+> Fuzzing with Wordlist:
+> 
+> ![[Pasted image 20230513094659.png]]
+> 
+
+> [!todo] 
+> Using wfuzz
+>` wfuzz -c -z file,/usr/share/wordlists/dirb/small.txt --sc 200  'http://10.10.153.7:5000/api/v1/resources/books?FUZZ=J.K.`'
+
+### Discovery via Source code
 
