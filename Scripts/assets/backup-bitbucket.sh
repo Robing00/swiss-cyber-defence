@@ -23,15 +23,27 @@ backup_repository() {
     git clone --mirror "https://${BITBUCKET_USER}:${BITBUCKET_APP_PASSWORD}@bitbucket.org/${BITBUCKET_WORKSPACE}/${repository_slug}.git" "${target_dir}"
 }
 
+# Function to fetch repositories from a page
+fetch_repositories() {
+    local url="$1"
+
+    response=$(curl -s --user "${BITBUCKET_USER}:${BITBUCKET_APP_PASSWORD}" "${url}")
+
+    # Backup each repository
+    echo "${response}" | jq -r '.values[] | .project.key + " " + .slug' | while read -r project_key repository_slug; do
+        backup_repository "${project_key}" "${repository_slug}"
+    done
+
+    # Fetch next page
+    next_url=$(echo "${response}" | jq -r '.next // empty')
+    if [[ -n "${next_url}" ]]; then
+        fetch_repositories "${next_url}"
+    fi
+}
+
 # Fetch all repositories
-repositories=$(curl -s --user "${BITBUCKET_USER}:${BITBUCKET_APP_PASSWORD}" "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}?pagelen=100" | jq -r '.values[] | .project.key + " " + .slug')
+fetch_repositories "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}?pagelen=100"
 
-# Backup each repository
-while read -r project_key repository_slug; do
-    backup_repository "${project_key}" "${repository_slug}"
-done <<< "${repositories}"
-
-echo "Create Archive (tar)..."
 
 # Get current date
 current_date=$(date +"%Y-%m-%d")
