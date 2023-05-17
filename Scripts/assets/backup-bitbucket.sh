@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Set Bitbucket credentials and workspace
-BITBUCKET_USER=""
-BITBUCKET_APP_PASSWORD=""
-BITBUCKET_WORKSPACE=""
+# BITBUCKET_USER=""
+# BITBUCKET_APP_PASSWORD=""
+# BITBUCKET_WORKSPACE=""
 
 # Set backup directory
 BACKUP_DIR="bitbucket_backup"
 mkdir -p "${BACKUP_DIR}"
+chmod 700 "${BACKUP_DIR}"
 
 # Function to backup a single repository
 backup_repository() {
@@ -44,14 +44,19 @@ fetch_repositories() {
 # Fetch all repositories
 fetch_repositories "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}?pagelen=100"
 
+echo "Create Archive (tar)..."
 
 # Get current date
 current_date=$(date +"%Y-%m-%d")
 
 # Create tar.gz file
 tar -zcf "backup_git_${current_date}.tar.gz" "${BACKUP_DIR}"
+chmod 700 "backup_git_${current_date}.tar.gz"
+mv "backup_git_${current_date}.tar.gz" ./archive_bitbucket_backup/
 
 # Remove BACKUP_DIR after creating tar.gz
 rm -rf "${BACKUP_DIR}"
 
 echo "Backup completed."
+
+curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Backup complete backup_git_${current_date}.tar.gz\"}" https://hooks.slack.com/services/xxx/xxx/xxx
