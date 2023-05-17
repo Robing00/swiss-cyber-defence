@@ -37,7 +37,7 @@ echo "Create Archive (tar)..."
 current_date=$(date +"%Y-%m-%d")
 
 # Create tar.gz file
-tar -zcvf "backup_git_${current_date}.tar.gz" "${BACKUP_DIR}"
+tar -zcf "backup_git_${current_date}.tar.gz" "${BACKUP_DIR}"
 
 # Remove BACKUP_DIR after creating tar.gz
 rm -rf "${BACKUP_DIR}"
