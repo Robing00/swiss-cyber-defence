@@ -115,20 +115,10 @@
 
 ### Docker Introduction
 
-> [!todo] 
-> Install https://github.com/OWASP/crAPI
-> `git clone https://github.com/OWASP/crAPI.git`
-> `sudo apt install docker.io`
-> run `docker-compose` if you don't have it it will ask you to install it
-> `cd ~/labs/crAPI/deploy/docker`
-> `sudo docker-compose up`
-
-> [!info] 
->  Go to WebApp: http://localhost:8888
->  And MailServer of WebApp: http://localhost:8025/
 
 > [!tip] 
 >  **Cleaning up your old containers**
+>  Will delete all your 
 
 ``` 
 #!/bin/bash  
@@ -139,6 +129,24 @@ sudo docker volume rm $(sudo docker volume ls -q)
 sudo docker network rm $(sudo docker network ls -q)
 ```
 
+> [!todo] 
+> Install https://github.com/OWASP/crAPI
+> `git clone https://github.com/OWASP/crAPI.git`
+> `sudo apt install docker.io`
+> Ensure you use docker-compose 2.x version
+> `docker-compose --version`
+> Otherwise: https://stackoverflow.com/questions/49839028/how-to-upgrade-docker-compose-to-latest-version
+> `cd ~/labs/crAPI/deploy/docker`
+> `sudo docker-compose -f docker-compose.yml --compatibility up -d`
+
+> [!caution] 
+> If there is error, you can try:
+>  `docker volume rm docker_postgresql-data`
+>  `docker volume rm docker_mongodb-data`
+
+> [!info] 
+>  Go to WebApp: http://localhost:8888
+>  And MailServer of WebApp: http://localhost:8025/
 
 ## Enumerating APIs
 
