@@ -31,7 +31,9 @@ while read -r project_key repository_slug; do
     backup_repository "${project_key}" "${repository_slug}"
 done <<< "${repositories}"
 
-Get current date
+echo "Create Archive (tar)..."
+
+# Get current date
 current_date=$(date +"%Y-%m-%d")
 
 # Create tar.gz file
