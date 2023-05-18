@@ -60,7 +60,7 @@
 >  https://www.postman.com/downloads/
 >  Extract it and move it to `/opt/`
 >  `tar –xvzf postman-linux-x64.tar.gz`
->  `sudo mv Postman`
+>  `sudo mv Postman /opt/`
 >  Link Postman:
 >  `sudo ln -s /opt/Postman/Postman /usr/bin/postman`
 >  Now just start postman from command line:
@@ -132,17 +132,24 @@ sudo docker network rm $(sudo docker network ls -q)
 > [!todo] 
 > Install https://github.com/OWASP/crAPI
 > `git clone https://github.com/OWASP/crAPI.git`
+> `sudo apt update --fix-missing`
 > `sudo apt install docker.io`
-> Ensure you use docker-compose 2.x version
+ `sudo apt upgrade docker-compose`
+ Ensure you use docker-compose 2.x version
 > `docker-compose --version`
-> Otherwise: https://stackoverflow.com/questions/49839028/how-to-upgrade-docker-compose-to-latest-version
 > `cd ~/labs/crAPI/deploy/docker`
-> `sudo docker-compose -f docker-compose.yml --compatibility up -d`
+> `sudo docker-compose up`
 
 > [!caution] 
 > If there is error, you can try:
 >  `docker volume rm docker_postgresql-data`
 >  `docker volume rm docker_mongodb-data`
+
+> [!hint] 
+> Hosted crAPI:
+> https://crapi.samsclass.info/login 
+> or
+> There is also a hosted version here http://crapi.apisec.ai/ and mailhog is available http://crapi.apisec.ai:8025/
 
 > [!info] 
 >  Go to WebApp: http://localhost:8888
@@ -176,3 +183,100 @@ sudo docker network rm $(sudo docker network ls -q)
 
 ### Discovery via Source code
 
+![[Pasted image 20230518110908.png]]
+
+> [!todo] 
+> JS Formater:
+> https://beautifier.io/ 
+
+
+## Attacking Authorization
+
+### Introduction to Authorization
+
+![[Pasted image 20230518111524.png]]
+https://afteracademy.com/blog/authentication-vs-authorization/
+
+
+![[Pasted image 20230518111510.png]]
+
+
+### BOLA Lab
+
+> [!info] 
+> Broken Object Level Authorization (BOLA) 
+
+![[Pasted image 20230518112635.png]]
+
+Pass founded UUID in other requests:
+
+![[Pasted image 20230518112715.png]]
+
+
+### BFLA Lab
+
+> [!note] 
+>  To get the vAPI application:
+git clone https://github.com/roottusk/vapi
+The collection is in the "postman" folder
+If you don't have git, you can use:
+sudo apt install git
+
+> [!todo] 
+> Import Postman collection from vAPI folder. Import both json.
+> 
+
+![[Pasted image 20230518142719.png]]
+
+
+### Challenge Solution
+
+> [!success] 
+>  By BOLA solution was right
+
+> [!success] 
+>  By BELA solution was almost right. Read better error response. 
+
+> [!hint] 
+> Good Blog to subscribe:
+>  https://samcurry.net/blog/
+
+
+## Attacking Authentication
+
+### Introduction to Authentication
+
+> [!info] 
+> Common API authentication methods
+> - HTTP basic authentication. If a simple form of HTTP authentication is all an app or service requires, HTTP basic authentication might be a good fit. ...
+> - API access tokens. ...
+> - OAuth with OpenID. ...
+> - SAML federated identity. 
+
+
+### Attacking Authentication
+
+> [!tip] 
+> Many Web Apps have a lack of: 
+> - Rate Limit
+> - Brute Force Protection
+
+> [!todo] 
+> Download api-brute-force-demo2.zip 
+> sudo docker-compose build
+> sudo docker-compose up
+
+> [!todo] 
+> Fuzzing via command line:
+> 
+> ![[Pasted image 20230518173441.png]] 
+> 
+> `ffuf -request Desktop/req.txt -request-proto http -mc 200 -w /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-10000.txt`
+> 
+> ![[Pasted image 20230518173819.png]]
+
+
+
+TODO TODO Find other user
+
+└─$ ffuf -w /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -X POST -d "{\"email\":\"FUZZ\",\"password\":\"d\"}" -H "Content-Type: application/x-www-form-urlencoded" -u http://localhost:9000/v1/verify.php -mr "Invalid password"
