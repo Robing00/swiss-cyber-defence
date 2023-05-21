@@ -356,3 +356,39 @@ sudo apt install git
 > 
 > ![[Pasted image 20230521144304.png]]
 
+
+### JSON Web Tokens - Part 3: jwt_tool
+
+> [!todo] 
+> Install jwt Tool:
+> git clone https://github.com/ticarpi/jwt_tool
+> `mv jwt_tool /opt/`
+> `sudo ln -s /opt/jwt_tool/jwt_tool.py /user/local/sbin/jwt_tool`
+
+![[Pasted image 20230521153236.png]]
+
+> [!todo] 
+> `python3 jwt_tool.py -t http://localhost:80/dashboard -rh 'Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiJ1c2VyIiwiaWF0IjoxNjg0NjcxMDAzfQ.80D3mwqxqjMDGF5UqMlFoDXTNKtcZEV7wSfhcmixnt4' -M at` 
+
+![[Pasted image 20230521154446.png]]
+
+
+![](https://user-images.githubusercontent.com/57728093/68797806-21f25700-064d-11ea-9baa-c58fb6f75c0b.png)
+
+https://github.com/ticarpi/jwt_tool/wiki
+
+
+![[Pasted image 20230521154854.png]]
+
+![[Pasted image 20230521155022.png]]
+
+![[Pasted image 20230521155251.png]]
+
+### Challenge Solution
+
+![[Pasted image 20230521160643.png]]
+
+![[Pasted image 20230521160709.png]]
+
+![[Pasted image 20230521162251.png]]
+
