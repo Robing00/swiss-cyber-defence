@@ -497,9 +497,37 @@ https://github.com/ticarpi/jwt_tool/wiki
 > https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection
 > 
 
-
-
 > [!todo] 
 > Find SQL Injection in Add Coupon in crAPI:
 > ![[Pasted image 20230525165819.png]] 
 
+
+### Challenge Solution
+
+![[Pasted image 20230525170036.png]]
+
+![[Pasted image 20230525170320.png]]
+
+> [!warning] 
+> If you not get any results, deselect Encoding in Burp Suite 
+
+![[Pasted image 20230525170418.png]]
+
+![[Pasted image 20230525170750.png]]
+
+
+## Mid-course Capstone
+
+### Mid-course Capstone Challenge
+
+> [!todo] 
+>  Go to: `~/lab/api-midcourse-capstone`
+>  `sudo docker-compose up`
+
+
+## My Challenge Solution
+
+
+!!!!!!!!!!!!!!!!!!!!!!!
+To Do.......
+!!!!!!!!!!!!!!!!!!!!!!!
