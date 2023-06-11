@@ -525,9 +525,127 @@ https://github.com/ticarpi/jwt_tool/wiki
 >  `sudo docker-compose up`
 
 
-## My Challenge Solution
+#### Challenge Solution
+
+> [!tip] 
+> Always look for injection endpoints (GET / POST etc.)
+> 
 
 
-!!!!!!!!!!!!!!!!!!!!!!!
-To Do.......
-!!!!!!!!!!!!!!!!!!!!!!!
+> [!note] 
+> ![[Pasted image 20230611131927.png]]
+> Order ID looks weak
+
+
+> [!note] 
+> Take Information from Session ID:
+> 
+> ![[Pasted image 20230611132238.png]]
+> 
+> Place Orders on behave of other users
+> 
+
+
+> [!note] 
+> Grab JWT Token:
+> 
+> ![[Pasted image 20230611132430.png]] 
+> 
+> Change Username and try to use it without valid signature:
+> 
+> ![[Pasted image 20230611132558.png]]
+> 
+> Later we can try to do other attacks, like none.
+> 
+> Place edited token and adjust email:
+> 
+> ![[Pasted image 20230611132730.png]]
+> 
+> We made order in behave of other user (# Broken Function Level Authorization): 
+> 
+> ![[Pasted image 20230611132846.png]]
+
+> [!note] 
+> Check for weak  secret:
+> 
+> HS256 is weak:
+> 
+> ![[Pasted image 20230611133055.png]]
+> 
+> ![[Pasted image 20230611133853.png]]
+
+
+> [!note] 
+> FUZZING :
+> 
+> ![[Pasted image 20230611134716.png]]
+
+> [!note] 
+> Information Disclosure (Endpoint with no protection):
+> 
+> ![[Pasted image 20230611134756.png]] 
+
+> [!note] 
+>  Broken Object Level Authorization
+>  We can see only with order number a order of other user:
+>  ![[Pasted image 20230611135020.png]]
+
+
+## Mass Assignment
+
+### Introduction to Mass Assignment
+
+> [!info] 
+> Modern frameworks allow developers a convenient mass assignment functionality that lets developers directly take a “user-supplied Key-Value Pair” input to the object database. This reduces the requirement of writing code for such custom Key-Value pairs and increases the development efficiency but at the cost of security risks if not implemented correctly. 
+> A mass assignment without a whitelist of allowed “Key-Value Pairs” could allow an attacker to use arbitrary values to create or update the resources abusing the applications’ regular workflow. Privilege escalation is one of the most common vulnerabilities arising from Mass Assignment vulnerability. 
+> According to OWASPthis [vulnerability](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html) depends on the language/framework in question can have several alternative names:
+> - Mass Assignment: Ruby on Rails, NodeJS.
+> - Autobinding: Spring MVC, ASP NET MVC.
+> - Object injection: PHP.
+>   
+> For example, consider an API that allows users to update their profile information. The API may accept a JSON payload that contains multiple fields such as name, email, and address. Without proper validation, an attacker can add additional fields such as "isAdmin":true” or "isSuperUser":true and gain elevated privileges as an admin or superuser.
+> 
+> Source: https://www.cobalt.io/blog/mass-assignment-apis-exploitation-in-the-wild
+
+
+### Code Walkthrough
+
+> [!todo] 
+> Unzip api-mass-assignment.zip
+
+![[Pasted image 20230611142650.png]]
+
+![[Pasted image 20230611142827.png]]
+
+![[Pasted image 20230611142800.png]]
+
+
+### Mass Assignment Lab
+
+> [!todo] 
+>  `sudo docker-compose up`
+>  Open: http://localhost:3000/
+
+> [!hint] 
+> Mass Assignment to create user with admin rights:
+> 
+> ![[Pasted image 20230611144941.png]]
+> Vulnerable Code:
+> ![[Pasted image 20230611145311.png]]
+> Fixed Code:
+>  ![[Pasted image 20230611145343.png]]
+
+> [!todo] 
+> `sudo docker ps -a`
+> `sudo docker exec -it d480993b4f41 sh` 
+> `mongo`
+> `show dbs`
+> `use nosqli-demo`
+> `show collections`
+> `db.users.find()`
+> 
+> ![[Pasted image 20230611145946.png]]
+
+
+### Challenge Solution
+
