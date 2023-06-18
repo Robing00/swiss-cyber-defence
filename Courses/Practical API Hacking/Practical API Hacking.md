@@ -1,4 +1,6 @@
 
+
+
 ### Introduction
 
 
@@ -648,4 +650,81 @@ https://github.com/ticarpi/jwt_tool/wiki
 
 
 ### Challenge Solution
+
+![[Pasted image 20230617112433.png]]
+
+![[Pasted image 20230617112658.png]]
+
+
+## Excessive Data Exposure
+
+### Introduction to Excessive Data Exposure
+
+> [!check] 
+> Compare API responses with what is actually displayed on the website. See if the API is returning too much information. 
+
+### Excessive Data Exposure Lab
+
+![[Pasted image 20230617115318.png]]
+
+### Challenge Solution
+
+![[Pasted image 20230617115720.png]]
+
+## SSRF - Server-side Request Forgery
+
+### Introduction to SSRF
+
+![[Pasted image 20230617115936.png]]
+
+![[Pasted image 20230617120111.png]]
+
+### SSRF Lab
+
+![[Pasted image 20230617121929.png]]
+
+![[Pasted image 20230617124356.png]]
+
+
+### Challenge Solution
+
+![[Pasted image 20230617130554.png]]
+
+![[Pasted image 20230617130644.png]]
+
+
+## Chaining Vulnerabilities
+
+### Command Injection
+
+
+### Challenge Solution
+
+> [!important] 
+> Webhook.site lets you easily inspect, test and automate (with the visual Custom Actions builder, or WebhookScript) any incoming HTTP request or e-mail. What's a webhook?: https://webhook.site 
+
+
+## Final Capstone
+
+
+### Final Capstone Challenge
+
+![[Pasted image 20230617140620.png]]
+
+![[Pasted image 20230617141500.png]]
+
+
+### Challenge Solution
+
+![[Pasted image 20230618151408.png]]
+
+![[Pasted image 20230618151955.png]]
+
+![[Pasted image 20230618152044.png]]
+
+![[Pasted image 20230618151242.png]]
+
+![[Pasted image 20230618151217.png]]
+
+![[Pasted image 20230618151315.png]]
 

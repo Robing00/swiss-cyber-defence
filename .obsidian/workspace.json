@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses/Practical API Hacking/Practical API Hacking.md",
+                "file": "Tools/Brim/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,14 +61,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
+                "file": "Courses/Practical API Hacking/Practical API Hacking.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -195,7 +195,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -213,22 +213,23 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "0ef1be6b4c45c47e",
+  "active": "213761bd2b5ad88e",
   "lastOpenFiles": [
-    "Courses/Practical API Hacking/assets/Pasted image 20230611145946.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611145343.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611145311.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611144941.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611142827.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611142800.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611142715.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611142650.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611135020.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611134756.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230611134716.png",
-    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
-    "Courses/Practical API Hacking/Practical API Hacking.md",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618152044.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151955.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151621.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151408.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151315.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151242.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151217.png",
     "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
+    "Tools/Brim/README.md",
+    "Courses/Practical API Hacking/Practical API Hacking.md",
+    "Courses/Practical API Hacking/assets/Pasted image 20230617141500.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230617140620.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230617130644.png",
+    "Courses/Practical API Hacking/assets/Pasted image 20230617130554.png",
+    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
     "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
     "Courses/Practical API Hacking/assets",
     "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
