@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "IbSearch",
       "TiLockSearch",
       "TiUserCheck",
       "IbCheckWithCircle",
-      "RiErrorWarningLine",
-      "TiWorldCog"
+      "RiErrorWarningLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -23,7 +23,6 @@
     "iconInTabsEnabled": false
   },
   "Cheatsheets/Web Penetration Testing": "IbInternetBrowser",
-  "Cheatsheets/Mobile Penetration Testing": "IbIphone",
   "Cheatsheets/Python": "FabPython",
   "Cheatsheets/Linux": "SiLinux",
   "Cheatsheets/Internal Penetration Testing": "RiComputerLine",
@@ -40,5 +39,7 @@
   "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md": "IbCheckWithCircle",
   "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md": "TiUserCheck",
   "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md": "TiLockSearch",
-  "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md": "LiInfo"
+  "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md": "LiInfo",
+  "Cheatsheets/Mobile Application Penetration Testing": "IbIphone",
+  "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md": "IbSearch"
 }

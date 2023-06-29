@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
                 "mode": "source",
                 "source": false
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md"
+                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md"
               }
             }
           },
@@ -196,7 +196,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -217,36 +217,37 @@
   },
   "active": "ab2d9287c14109ce",
   "lastOpenFiles": [
-    "Cheatsheets/WiFi Penetration Testing/Introduction.md",
-    "Cheatsheets/Web Penetration Testing/9. Reporting and Documentation.md",
-    "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md",
-    "Cheatsheets/Web Penetration Testing/8. Web Services Testing.md",
-    "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md",
-    "Cheatsheets/Web Penetration Testing/assets/16515949907459.png",
+    "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
     "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+    "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/4. Mapping Phase.md",
+    "Cheatsheets/Python/README.md",
+    "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/2. Preparation Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/11. Future of Mobile Application Penetration Testing.md",
+    "Cheatsheets/Mobile Application Penetration Testing/10. Mobile Application Secure Coding Practices.md",
+    "Cheatsheets/Mobile Application Penetration Testing/9. Review and Retest Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/8. Reporting Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/7. Post-Exploitation Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/6. Exploitation Phase.md",
+    "Cheatsheets/Web Penetration Testing/9. Reporting and Documentation.md",
+    "Cheatsheets/Web Penetration Testing/8. Web Services Testing.md",
     "Cheatsheets/Web Penetration Testing/7. Error Handling and Information Leakage.md",
+    "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md",
+    "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md",
     "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md",
     "Cheatsheets/Web Penetration Testing/3. Authentication Mechanisms Testing.md",
-    "Cheatsheets/Web Penetration Testing/1. Reconnaissance.md",
     "Cheatsheets/Web Penetration Testing/2. Crawling and Enumeration.md",
+    "Cheatsheets/Web Penetration Testing/1. Reconnaissance.md",
+    "Tools/Gobuster.md",
+    "Cheatsheets/WiFi Penetration Testing/Introduction.md",
+    "Cheatsheets/Web Penetration Testing/assets/16515949907459.png",
     "Tools/nmap.md",
     "Tools/assets/16523510240258.png",
     "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
-    "Cheatsheets/External Penetration Testing/Cloud.md",
     "Cheatsheets/Cloud Penetration Testing",
-    "Tools/Gobuster.md",
-    "Tools/Nikto.md",
-    "Tools/Hydra/Hydra.md",
-    "Links, Websites & Services/Threat Actors.md",
-    "Tools/Wireshark/README.md",
     "Tools/assets/2022-08-26-14-12-22-image.png",
-    "HomeLab/DevOps/Proxmox.md",
     "Tools/Proxmox",
-    "HomeLab/HomeLab.md",
-    "Tools/Jenkins/Jenkins.md",
-    "HomeLab/DevOps/Jenkins - Build Server.md",
-    "Tools/Kali Linux/README.md",
-    "Tools/Brim.md",
     "Links, Websites & Services/assets/Pasted image 20230629140434.png",
     "Links, Websites & Services/assets",
     "assets/Pasted image 20230629140410.png",
