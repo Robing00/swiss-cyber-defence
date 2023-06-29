@@ -1,4 +1,4 @@
-# The Definitive GRC Analyst Master Class
+
 
 > Link to Course: https://academy.tcm-sec.com/courses
 
