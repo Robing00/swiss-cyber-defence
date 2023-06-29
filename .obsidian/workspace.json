@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HomeLab/DevOps/Security Onion.md",
+                "file": "Links, Websites & Services/News.md",
                 "mode": "source",
                 "source": false
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HomeLab/DevOps/Security Onion.md",
+                "file": "Links, Websites & Services/News.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +158,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HomeLab/DevOps/Security Onion.md",
+                "file": "Links, Websites & Services/News.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -181,7 +181,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HomeLab/DevOps/Security Onion.md"
+                "file": "Links, Websites & Services/News.md"
               }
             }
           },
@@ -214,9 +214,12 @@
   },
   "active": "f378e3bc425b540c",
   "lastOpenFiles": [
+    "Links, Websites & Services/assets/Pasted image 20230629140434.png",
+    "Links, Websites & Services/assets",
+    "assets/Pasted image 20230629140410.png",
+    "HomeLab/DevOps/Security Onion.md",
     "HomeLab/DevOps/Proxmox.md",
     "HomeLab/DevOps/Jenkins - Build Server.md",
-    "HomeLab/DevOps/Security Onion.md",
     "Tools/Security Onion/README.md",
     "Links, Websites & Services/Hacking Lab.md",
     "Links, Websites & Services/Threat Actors.md",
@@ -247,19 +250,16 @@
     "assets/CNSSI_4009.pdf",
     "assets/repository-header.png",
     "Courses/Cyber Security Specialist/Manage security incidents and Incident Response/README.md",
-    "Courses/Cyber Security Specialist/Exam Simulation Projects and Business Administration/README.md",
     "Untitled.canvas",
     "Templates/Templates/~$IC-Project-Budgeting-Template-DE-47013.xlsx",
     "Courses/Cyber Security Specialist/Templates",
     "GRC (Governance, Risk & Compliance)/HIPAA",
-    "Templates/GRC (Governance, Risk & Compliance)/HIPAA/info_security_policy_template_v1_0.docx",
     "Courses/Practical API Hacking/assets/Pasted image 20230618152044.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151955.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151621.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151408.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151315.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151242.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230618151217.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230617141500.png"
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151217.png"
   ]
 }
