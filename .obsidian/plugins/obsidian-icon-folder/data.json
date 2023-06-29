@@ -6,11 +6,11 @@
     "emojiStyle": "none",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "IbSearch",
-      "TiLockSearch",
-      "TiUserCheck",
-      "IbCheckWithCircle",
-      "RiErrorWarningLine"
+      "IbNews",
+      "TiCode",
+      "TiChecklist",
+      "TiReportAnalytics",
+      "IbDatabse"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -41,5 +41,15 @@
   "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md": "TiLockSearch",
   "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md": "LiInfo",
   "Cheatsheets/Mobile Application Penetration Testing": "IbIphone",
-  "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md": "IbSearch"
+  "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md": "IbSearch",
+  "Cheatsheets/Mobile Application Penetration Testing/2. Preparation Phase.md": "IbCheck",
+  "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md": "LiInfo",
+  "Cheatsheets/Mobile Application Penetration Testing/4. Mapping Phase.md": "TiMap",
+  "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md": "RiCompassDiscoverLine",
+  "Cheatsheets/Mobile Application Penetration Testing/6. Exploitation Phase.md": "TiBomb",
+  "Cheatsheets/Mobile Application Penetration Testing/7. Post-Exploitation Phase.md": "IbDatabse",
+  "Cheatsheets/Mobile Application Penetration Testing/8. Reporting Phase.md": "TiReportAnalytics",
+  "Cheatsheets/Mobile Application Penetration Testing/9. Review and Retest Phase.md": "TiChecklist",
+  "Cheatsheets/Mobile Application Penetration Testing/10. Mobile Application Secure Coding Practices.md": "TiCode",
+  "Cheatsheets/Mobile Application Penetration Testing/11. Future of Mobile Application Penetration Testing.md": "IbNews"
 }

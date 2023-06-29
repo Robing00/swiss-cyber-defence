@@ -8,68 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f378e3bc425b540c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ab2d9287c14109ce",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0ef1be6b4c45c47e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Brim.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3be9bc3120345fe2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "213761bd2b5ad88e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "GRC (Governance, Risk & Compliance)/HIPAA/HIPAA.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -143,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
+                "file": "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -183,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md"
+                "file": "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md"
               }
             }
           },
@@ -217,26 +167,26 @@
   },
   "active": "ab2d9287c14109ce",
   "lastOpenFiles": [
-    "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
-    "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
-    "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
-    "Cheatsheets/Mobile Application Penetration Testing/4. Mapping Phase.md",
-    "Cheatsheets/Python/README.md",
-    "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md",
+    "Cheatsheets/Web Penetration Testing/3. Authentication Mechanisms Testing.md",
     "Cheatsheets/Mobile Application Penetration Testing/2. Preparation Phase.md",
-    "Cheatsheets/Mobile Application Penetration Testing/11. Future of Mobile Application Penetration Testing.md",
     "Cheatsheets/Mobile Application Penetration Testing/10. Mobile Application Secure Coding Practices.md",
+    "Cheatsheets/Mobile Application Penetration Testing/11. Future of Mobile Application Penetration Testing.md",
     "Cheatsheets/Mobile Application Penetration Testing/9. Review and Retest Phase.md",
     "Cheatsheets/Mobile Application Penetration Testing/8. Reporting Phase.md",
     "Cheatsheets/Mobile Application Penetration Testing/7. Post-Exploitation Phase.md",
     "Cheatsheets/Mobile Application Penetration Testing/6. Exploitation Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/5. Discovery Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/4. Mapping Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/3. Reconnaissance Phase.md",
+    "Cheatsheets/Mobile Application Penetration Testing/1. Introduction & Checklist.md",
+    "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+    "Cheatsheets/Python/README.md",
     "Cheatsheets/Web Penetration Testing/9. Reporting and Documentation.md",
     "Cheatsheets/Web Penetration Testing/8. Web Services Testing.md",
     "Cheatsheets/Web Penetration Testing/7. Error Handling and Information Leakage.md",
     "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md",
     "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md",
     "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md",
-    "Cheatsheets/Web Penetration Testing/3. Authentication Mechanisms Testing.md",
     "Cheatsheets/Web Penetration Testing/2. Crawling and Enumeration.md",
     "Cheatsheets/Web Penetration Testing/1. Reconnaissance.md",
     "Tools/Gobuster.md",
