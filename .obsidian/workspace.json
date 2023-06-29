@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Links, Websites & Services/News.md",
+                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
+                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/Brim/README.md",
+                "file": "Tools/Brim.md",
                 "mode": "source",
                 "source": false
               }
@@ -51,6 +51,7 @@
               "state": {
                 "file": "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
@@ -67,7 +68,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +98,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "nmap",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -141,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Links, Websites & Services/News.md",
+                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Links, Websites & Services/News.md",
+                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -181,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Links, Websites & Services/News.md"
+                "file": "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md"
               }
             }
           },
@@ -209,57 +211,57 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "markdown-importer:Open format converter": false
+      "markdown-importer:Open format converter": false,
+      "obsidian-rich-links:Rich Links": false
     }
   },
-  "active": "f378e3bc425b540c",
+  "active": "ab2d9287c14109ce",
   "lastOpenFiles": [
+    "Cheatsheets/WiFi Penetration Testing/Introduction.md",
+    "Cheatsheets/Web Penetration Testing/9. Reporting and Documentation.md",
+    "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md",
+    "Cheatsheets/Web Penetration Testing/8. Web Services Testing.md",
+    "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md",
+    "Cheatsheets/Web Penetration Testing/assets/16515949907459.png",
+    "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md",
+    "Cheatsheets/Web Penetration Testing/7. Error Handling and Information Leakage.md",
+    "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md",
+    "Cheatsheets/Web Penetration Testing/3. Authentication Mechanisms Testing.md",
+    "Cheatsheets/Web Penetration Testing/1. Reconnaissance.md",
+    "Cheatsheets/Web Penetration Testing/2. Crawling and Enumeration.md",
+    "Tools/nmap.md",
+    "Tools/assets/16523510240258.png",
+    "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
+    "Cheatsheets/External Penetration Testing/Cloud.md",
+    "Cheatsheets/Cloud Penetration Testing",
+    "Tools/Gobuster.md",
+    "Tools/Nikto.md",
+    "Tools/Hydra/Hydra.md",
+    "Links, Websites & Services/Threat Actors.md",
+    "Tools/Wireshark/README.md",
+    "Tools/assets/2022-08-26-14-12-22-image.png",
+    "HomeLab/DevOps/Proxmox.md",
+    "Tools/Proxmox",
+    "HomeLab/HomeLab.md",
+    "Tools/Jenkins/Jenkins.md",
+    "HomeLab/DevOps/Jenkins - Build Server.md",
+    "Tools/Kali Linux/README.md",
+    "Tools/Brim.md",
     "Links, Websites & Services/assets/Pasted image 20230629140434.png",
     "Links, Websites & Services/assets",
     "assets/Pasted image 20230629140410.png",
-    "HomeLab/DevOps/Security Onion.md",
-    "HomeLab/DevOps/Proxmox.md",
-    "HomeLab/DevOps/Jenkins - Build Server.md",
-    "Tools/Security Onion/README.md",
-    "Links, Websites & Services/Hacking Lab.md",
-    "Links, Websites & Services/Threat Actors.md",
-    "Links, Websites & Services/News.md",
-    "Links, Websites & Services/Forensic.md",
-    "Links, Websites & Services/Podcasts.md",
-    "Links, Websites & Services/Generator.md",
-    "Links, Websites & Services/Learning Cyber Security.md",
     "Links, Websites & Services/Generator",
-    "Links, Websites & Services/Tools & Applications.md",
-    "README.md",
-    "Links, Websites & Services/Network Analysis.md",
-    "Links, Websites & Services/Tutorials.md",
     "Links, Websites & Services/### Learning Cyber Security",
-    "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
-    "GRC (Governance, Risk & Compliance)/HIPAA/HIPAA.md",
-    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
-    "Tools/Brim/README.md",
     "Links/News",
     "Links, Websites & Services",
-    "Cheatsheets/Web Penetration Testing/Web Application Penetration Testing.md",
-    "Cheatsheets/Web Penetration Testing/assets/16515949907459.png",
     "Courses/Cyber Security Specialist/2_4_3_Leitfaden_PBE.pdf",
-    "Cheatsheets/Python/README.md",
-    "Courses/Cyber Security Specialist/Projects IT Project Management/README.md",
-    "Courses/Cyber Security Specialist/Delimit systems and define requirements/README.md",
-    "Courses/Cyber Security Specialist/Collect and budget expenditure for ICT projects/README.md",
     "assets/CNSSI_4009.pdf",
     "assets/repository-header.png",
-    "Courses/Cyber Security Specialist/Manage security incidents and Incident Response/README.md",
     "Untitled.canvas",
     "Templates/Templates/~$IC-Project-Budgeting-Template-DE-47013.xlsx",
-    "Courses/Cyber Security Specialist/Templates",
-    "GRC (Governance, Risk & Compliance)/HIPAA",
     "Courses/Practical API Hacking/assets/Pasted image 20230618152044.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151955.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151621.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230618151408.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230618151315.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230618151242.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230618151217.png"
+    "Courses/Practical API Hacking/assets/Pasted image 20230618151408.png"
   ]
 }

@@ -1,4 +1,10 @@
 [
   "obsidian-markdown-formatting-assistant-plugin",
-  "obsidian-open-link-with"
+  "obsidian-open-link-with",
+  "obsidian-icon-folder",
+  "obsidian-icon-shortcodes",
+  "obsidian-copy-block-link",
+  "obsidian-rich-links",
+  "mrj-jump-to-link",
+  "obsidian-linter"
 ]

@@ -1,0 +1,44 @@
+{
+  "settings": {
+    "migrated": true,
+    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "fontSize": 16,
+    "emojiStyle": "none",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "TiLockSearch",
+      "TiUserCheck",
+      "IbCheckWithCircle",
+      "RiErrorWarningLine",
+      "TiWorldCog"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false
+  },
+  "Cheatsheets/Web Penetration Testing": "IbInternetBrowser",
+  "Cheatsheets/Mobile Penetration Testing": "IbIphone",
+  "Cheatsheets/Python": "FabPython",
+  "Cheatsheets/Linux": "SiLinux",
+  "Cheatsheets/Internal Penetration Testing": "RiComputerLine",
+  "Cheatsheets/Cloud Penetration Testing": "TiCloud",
+  "Cheatsheets/API Penetration Testing": "TiApi",
+  "Cheatsheets/WiFi Penetration Testing": "TiWifi",
+  "Cheatsheets/External Penetration Testing": "TiWorld",
+  "Cheatsheets/Web Penetration Testing/1. Reconnaissance.md": "IbSearch",
+  "Cheatsheets/Web Penetration Testing/2. Crawling and Enumeration.md": "TiHierarchy",
+  "Cheatsheets/Web Penetration Testing/3. Authentication Mechanisms Testing.md": "IbUser",
+  "Cheatsheets/Web Penetration Testing/9. Reporting and Documentation.md": "TiReportAnalytics",
+  "Cheatsheets/Web Penetration Testing/8. Web Services Testing.md": "TiWorldCog",
+  "Cheatsheets/Web Penetration Testing/7. Error Handling and Information Leakage.md": "RiErrorWarningLine",
+  "Cheatsheets/Web Penetration Testing/6. Data Validation Testing.md": "IbCheckWithCircle",
+  "Cheatsheets/Web Penetration Testing/5. Session Management Testing.md": "TiUserCheck",
+  "Cheatsheets/Web Penetration Testing/4. Authorization Testing.md": "TiLockSearch",
+  "Cheatsheets/Web Penetration Testing/0. Introduction & Checklist.md": "LiInfo"
+}

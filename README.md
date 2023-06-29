@@ -19,7 +19,7 @@ Follow me on Twitter:
   * Procedures and tools for penetration testing, vulnerability scanning, and compliance scanning.
   * Indicators of Compromise (IoC) and Indicators of Attack (IoA)
   * Proactive threat hunting
-    * [Web Application Penetration Testing](Web%20Application%20Penetration%20Testing.md)
+    * [0. Introduction & Checklist](0.%20Introduction%20&%20Checklist.md)
   * Legal framework for hacking
 
 * A4: Close vulnerabilities
@@ -70,11 +70,11 @@ Follow me on Twitter:
 
 ### Network Analysis
 
-* [Brim](Tools/Brim/README.md)
+* [Brim](Brim.md)
 
 * [Wireshark](Tools/Wireshark/README.md)
 
-* [Nmap](Tools/nmap/README.md) - Discover your network
+* [Nmap](nmap.md) - Discover your network
 
 ### Penetration Testing
 
@@ -82,9 +82,9 @@ Follow me on Twitter:
 
 * [Wifite2](Tools/Wifite2/README.md) - Python script for auditing wireless networks
 
-* [Aircrack-ng](Tools/Aircrack-ng/README.md) - Aircrack-ng is a complete suite of tools to assess WiFi network security
+* [Aircrack-ng](Aircrack-ng.md) - Aircrack-ng is a complete suite of tools to assess WiFi network security
 
-* [Hydra](Tools/Hydra/README.md) - Brute Force Attack 
+* [Hydra](Hydra.md) - Brute Force Attack 
 
 ### Memory Forensics
 
