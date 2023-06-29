@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
+                "file": "HomeLab/DevOps/Security Onion.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,14 +61,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses/The Definitive GRC Analyst Master Class/The Definitive GRC Analyst Master Class.md",
+                "file": "GRC (Governance, Risk & Compliance)/HIPAA/HIPAA.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -142,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Courses/The Definitive GRC Analyst Master Class/The Definitive GRC Analyst Master Class.md",
+                "file": "HomeLab/DevOps/Security Onion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +158,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Courses/The Definitive GRC Analyst Master Class/The Definitive GRC Analyst Master Class.md",
+                "file": "HomeLab/DevOps/Security Onion.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +181,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Courses/The Definitive GRC Analyst Master Class/The Definitive GRC Analyst Master Class.md"
+                "file": "HomeLab/DevOps/Security Onion.md"
               }
             }
           },
@@ -195,11 +194,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 522.5
+    "width": 323.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -213,21 +212,47 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "213761bd2b5ad88e",
+  "active": "f378e3bc425b540c",
   "lastOpenFiles": [
-    "Frameworks/ICT minimum standard (Switzerland)/ICT minimum standard.md",
-    "Tools/nikto/README.md",
-    "Frameworks/ICT minimum standard (Switzerland)",
-    "Untitled.md",
-    "Untitled 1.md",
-    "Tools/pfSense/README.md",
-    "HackingLab/Portswigger Mystery lab challenge/Portswigger Mystery lab challenge.md",
-    "Courses/Bug Bounty Bootcamp/Bug Bounty Bootcamp.md",
-    "Courses/External Pentest Playbook/README.md",
-    "Notes/TryHackMe/RootMe/README.md",
-    "Notes/2022-07-05 - Exam Simulation Hacking Lab/README.md",
-    "Federal Exam/README.md",
-    "Courses/Practical API Hacking/Practical API Hacking.md",
+    "HomeLab/DevOps/Proxmox.md",
+    "HomeLab/DevOps/Jenkins - Build Server.md",
+    "HomeLab/DevOps/Security Onion.md",
+    "Tools/Security Onion/README.md",
+    "Links, Websites & Services/Hacking Lab.md",
+    "Links, Websites & Services/Threat Actors.md",
+    "Links, Websites & Services/News.md",
+    "Links, Websites & Services/Forensic.md",
+    "Links, Websites & Services/Podcasts.md",
+    "Links, Websites & Services/Generator.md",
+    "Links, Websites & Services/Learning Cyber Security.md",
+    "Links, Websites & Services/Generator",
+    "Links, Websites & Services/Tools & Applications.md",
+    "README.md",
+    "Links, Websites & Services/Network Analysis.md",
+    "Links, Websites & Services/Tutorials.md",
+    "Links, Websites & Services/### Learning Cyber Security",
+    "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
+    "GRC (Governance, Risk & Compliance)/HIPAA/HIPAA.md",
+    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
+    "Tools/Brim/README.md",
+    "Links/News",
+    "Links, Websites & Services",
+    "Cheatsheets/Web Penetration Testing/Web Application Penetration Testing.md",
+    "Cheatsheets/Web Penetration Testing/assets/16515949907459.png",
+    "Courses/Cyber Security Specialist/2_4_3_Leitfaden_PBE.pdf",
+    "Cheatsheets/Python/README.md",
+    "Courses/Cyber Security Specialist/Projects IT Project Management/README.md",
+    "Courses/Cyber Security Specialist/Delimit systems and define requirements/README.md",
+    "Courses/Cyber Security Specialist/Collect and budget expenditure for ICT projects/README.md",
+    "assets/CNSSI_4009.pdf",
+    "assets/repository-header.png",
+    "Courses/Cyber Security Specialist/Manage security incidents and Incident Response/README.md",
+    "Courses/Cyber Security Specialist/Exam Simulation Projects and Business Administration/README.md",
+    "Untitled.canvas",
+    "Templates/Templates/~$IC-Project-Budgeting-Template-DE-47013.xlsx",
+    "Courses/Cyber Security Specialist/Templates",
+    "GRC (Governance, Risk & Compliance)/HIPAA",
+    "Templates/GRC (Governance, Risk & Compliance)/HIPAA/info_security_policy_template_v1_0.docx",
     "Courses/Practical API Hacking/assets/Pasted image 20230618152044.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151955.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151621.png",
@@ -235,29 +260,6 @@
     "Courses/Practical API Hacking/assets/Pasted image 20230618151315.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151242.png",
     "Courses/Practical API Hacking/assets/Pasted image 20230618151217.png",
-    "Courses/Practical Ethical Hacking - The Complete Course/Practical Ethical Hacking - The Complete Course.md",
-    "Tools/Brim/README.md",
-    "Courses/Practical API Hacking/assets/Pasted image 20230617141500.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230617140620.png",
-    "Courses/Practical API Hacking/assets/Pasted image 20230617130644.png",
-    "Courses/Web Security Academy Series Course/Web Security Academy Series Course.md",
-    "Courses/Practical API Hacking/assets",
-    "Courses/Windows Privilege Escalation for Beginners/Windows Privilege Escalation for Beginners.md",
-    "Courses/Practical API Hacking",
-    "Courses/Web Security Academy Series Course/assets",
-    "Courses/Web Security Academy Series Course",
-    "Courses/Windows Privilege Escalation for Beginners/assets",
-    "Courses/Open-Source Intelligence (OSINT) Fundamentals/README.md",
-    "Courses/Windows Privilege Escalation for Beginners",
-    "Tools/Jenkins/Jenkins.md",
-    "Scripts/assets/backup-bitbucket.sh",
-    "Scripts/assets",
-    "Scripts/Bitbucket Backup Script.md",
-    "Topics/DevOps/assets",
-    "Tools/Jenkins/Setup Workflow for Xcode.md",
-    "Topics/DevOps/Security Onion.md",
-    "Topics/DevOps/Proxmox.md",
-    "Topics/DevOps/Jenkins - Build Server.md",
-    "Courses/The Definitive GRC Analyst Master Class/The Definitive GRC Analyst Master Class.md"
+    "Courses/Practical API Hacking/assets/Pasted image 20230617141500.png"
   ]
 }

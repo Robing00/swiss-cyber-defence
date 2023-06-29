@@ -14,7 +14,7 @@ Kali Linux is a Debian-derived Linux distribution designed for digital forensics
 
 ## Python Setup Script for Kali
 
-* [Kali-Setup.py](../../Topics/Python/assets/Kali-Setup.py)
+* [Kali-Setup.py](Cheatsheets/Python/assets/Kali-Setup.py)
 
 ## Cheat Sheets
 * [Kali Linux Cheat Sheet](assets/Kali-Linux-Cheat-Sheet.pdf)

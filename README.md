@@ -6,7 +6,7 @@ Follow me on Twitter:
 
 ## Federal Exam
 
-* ⭐️ [Topics / Overview ](Federal%20Exam/README.md) ⭐️
+* ⭐️ [Topics / Overview ](Courses/Cyber%20Security%20Specialist/Federal%20Exam/README.md) ⭐️
 
 ## Topics
 
@@ -19,7 +19,7 @@ Follow me on Twitter:
   * Procedures and tools for penetration testing, vulnerability scanning, and compliance scanning.
   * Indicators of Compromise (IoC) and Indicators of Attack (IoA)
   * Proactive threat hunting
-    * [Web Application Penetration Testing](Topics/Web%20Application%20Penetration%20Testing/README.md)
+    * [Web Application Penetration Testing](Web%20Application%20Penetration%20Testing.md)
   * Legal framework for hacking
 
 * A4: Close vulnerabilities
@@ -31,11 +31,11 @@ Follow me on Twitter:
 
 * B1: Monitor systems in operation
 * B2: Analyzing and interpreting data
-  * [Python](Topics/Python/README.md)
+  * [Python](Cheatsheets/Python/README.md)
 * B3: Triage security incidents
 * B4: Document security incidents
 * B5: Monitor & handling of a security incident
-  * [Manage security incidents and Incident Response](Topics/Manage%20security%20incidents%20and%20Incident%20Response/README.md)
+  * [Manage security incidents and Incident Response](Courses/Cyber%20Security%20Specialist/Manage%20security%20incidents%20and%20Incident%20Response/README.md)
 
 ### C. Handle / Response Security Incidents
 
@@ -53,7 +53,7 @@ Follow me on Twitter:
 * D4: Carry out evaluation
 * D5: Complete sub-project
 * D6: Lead team
-  * [Team Building and Management](Topics/Team%20Building%20and%20Management/README.md)
+  * [Team Building and Management](Courses/Cyber%20Security%20Specialist/Team%20Building%20and%20Management/README.md)
 
 ## Tools & Applications
 
@@ -104,74 +104,8 @@ Follow me on Twitter:
 
 ### Scripting & Automation
 
-## Websites & Services
 
-### Document Forensic
 
-* [Scan Maldoc](https://scan.tylabs.com) - QuickSand Framework
-
-### Network Analysis
-
-* [A-Packets](https://apackets.com) - Online pcap file analyzer
-
-* [AlienVault](https://otx.alienvault.com) - OTX changed the way the intelligence community creates and consumes threat data. In OTX, anyone in the security community can contribute, discuss, research, validate, and share threat data. 
-
-* [Shodan](https://www.shodan.io) - Shodan is the world's first search engine for Internet-connected devices.
-
-* [MITRE ATT&CK® Matrix](https://attack.mitre.org/matrices/enterprise/) - The MITRE ATT&CK® Matrix for Enterprise identifies an extraordinary breadth of cybercriminal tactics - more than 200 techniques across 14 attack categories
-
-* [VirusTotal](https://www.virustotal.com/) - Analyze suspicious files, domains, IPs and URLs to detect malware and other breaches, automatically share them with the security community
-
-### Tools & Applications
-
-* [CyberChef](https://gchq.github.io/CyberChef/) - CyberChef encourages both technical and non-technical people to explore data formats, encryption and compression
-
-* [Firewall Test](https://hackertarget.com/firewall-test/) - Online Firewall Test for Work or Home
-
-* [Security Information and Event Management (SIEM) Reviews and Ratings](https://www.gartner.com/reviews/market/security-information-event-management)
-
-### Generator
-
-* [Reverse Shell Generator](https://www.revshells.com) - Online Reverse Shell generator with Local Storage functionality, URI & Base64 Encoding, MSFVenom Generator, and Raw Mode. Great for CTFs
-* http://localhost.run/ - connect a tunnel to your web or shell application
-* 
-
-### Tutorials
-
-* [HackTricks](https://book.hacktricks.xyz) - Welcome to the page where you will find each hacking trick/technique/whatever I have learnt in CTFs, real life apps, and reading researches and news.
-* [Expose Local Services To The Internet With 1 COMMAND! - YouTube](https://www.youtube.com/watch?v=111ZDMKVTL4)
-
-### Learning Cyber Security
-
-* [TryHackMe](https://tryhackme.com) - TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!
-
-* [HACK THE BOX](https://www.hackthebox.com) - Join a dynamically growing hacking community and take your cybersecurity skills to the next level through the most captivating, gamified, hands-on training experience!
-
-* [Wargames](https://overthewire.org/wargames/) - The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games.
-
-* [Portswigger's Mystery lab challenge](https://portswigger.net/web-security/all-labs) - Web Application Penetration Testing
-
-### Other
-
-* [List of hacker groups](https://en.wikipedia.org/wiki/List_of_hacker_groups)
-
-### News
-
-* [The Hacker News](https://thehackernews.com) -  Cybersecurity News and Analysis
-
-### Podcasts
-
-* ⭐️ [Darknet Diaries](https://darknetdiaries.com) -True stories from the dark side of the Internet ([Apple Podcasts](https://podcasts.apple.com/ch/podcast/darknet-diaries/id1296350485))
-
-## Hacking Lab
-
-### Web Application Penetration Testing
-
-* [Portswigger Mystery lab challenges](HackingLab/Portswigger%20Mystery%20lab%20challenge/Portswigger%20Mystery%20lab%20challenge.md) 
-
-## Home Work
-
-## Exam Simulation
 
 ## All Flashcards (studysmarter.de)
 

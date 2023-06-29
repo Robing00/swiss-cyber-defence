@@ -1,0 +1,5 @@
+
+**RISK LIKELIHOOD, RISK IMPACT, AND RISK LEVEL DEFINITIONS – NIST SP 800-30**
+
+![[NIST-Definitions-Calculations-01-06-12.doc]]
+
